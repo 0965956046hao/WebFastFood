@@ -616,9 +616,14 @@ section {
 }
 
 .home-bg {
+    padding-top: 50px;
     background: url(../images/home.jpg) no-repeat;
     background-size: cover;
     background-position: center;
+    max-width: 1200px;
+    max-height: 500px;
+    display: block;
+    margin: 0 auto;
 }
 
 .home-bg .home .slide-container {
@@ -637,7 +642,7 @@ section {
 }
 
 .home-bg .home .slide-container .slide .image {
-    flex: 1 1 40rem;
+    flex: 1 1 6rem;
     animation: fadeRight .4s linear;
 }
 
@@ -646,6 +651,7 @@ section {
 }
 
 .home-bg .home .slide-container .slide .content {
+    padding-top: 50px;
     flex: 1 1 40rem;
     text-align: center;
     animation: fadeLeft .4s linear;
@@ -653,6 +659,8 @@ section {
 
 .home-bg .home .slide-container .slide .content h3 {
     color: var(--black);
+    border-radius: 20px;
+    background-color: var(--orange);
     margin-bottom: 3rem;
     text-transform: capitalize;
     font-size: 7.5rem;
