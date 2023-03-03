@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Damion&display=swap');
 :root {
     --orange: #ff7800;
-    --black: #130f40;
+    --black: #000000;
     --light-color: #666;
     --box-shaw: 0 .5rem 1rem rgba(0, 0, 0, .1);
     --border: .2rem solid rgba(0, 0, 0, .1);
@@ -91,17 +91,95 @@ section {
     right: 0;
     z-index: 1000;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 2rem 9%;
+    /* align-items: center;
+    justify-content: space-between; */
+    padding: 0 10px 0px 10px;
     background: #fff;
     box-shadow: var(--box-shaw);
 }
 
+
+/* new */
+
+.grid {
+    height: 120px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.header-summary {
+    width: 1800px;
+}
+
+.header-navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 3px;
+    height: var(--navbar-height);
+}
+
+.header-another-part {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-navbar-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.header-navbar-items {
+    margin: 0 8px;
+    position: relative;
+}
+
+.header-navbar-items,
+.header-navbar-items-link {
+    display: inline-block;
+    font-size: 14px;
+    color: var(--white-color);
+    text-decoration: none;
+}
+
+.header-navbar-items-link:hover {
+    color: #bfdef2;
+    cursor: pointer;
+}
+
+.header-navbar-items-strong {
+    font-weight: 500;
+}
+
+.header-navbar-items-separate::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 12px;
+    background-color: #bfdef2;
+    top: 50%;
+    right: -9px;
+    transform: translateY(-50%);
+}
+
+.header-navbar-items-cover {
+    background-color: #db5521;
+    border-radius: 30px;
+    margin: 0 20px;
+    padding: 4px 12px;
+}
+
+
+/* end */
+
 .header .logoimg {
     align-items: center;
+    justify-content: center;
     display: flex;
     position: relative;
+    padding-left: 150px;
 }
 
 .header .logoimg .logo {
@@ -112,8 +190,8 @@ section {
 }
 
 .header .logoimg img {
-    width: 8rem;
-    height: 5rem;
+    width: 9rem;
+    height: 7rem;
 }
 
 .header .navbar a {
