@@ -22,7 +22,6 @@
     outline: none;
     border: none;
     text-decoration: none;
-    text-transform: capitalize;
     transition: all .2s linear;
 }
 
@@ -54,7 +53,7 @@ body {
 section {
     padding: 2rem;
     margin: 0;
-    max-width: 1500px;
+    max-width: 1600rem;
 }
 
 .heading {
@@ -648,7 +647,7 @@ section {
 .menu .box-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, 35rem);
-    gap: 6rem;
+    gap: 1.5rem;
     align-items: flex-start;
     justify-content: center;
 }
@@ -736,22 +735,27 @@ section {
 }
 
 .contai {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    display: flex;
+    justify-content: center;
     gap: 3rem;
-    background: #eee;
+    background: var(--orange);
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 0.5rem;
 }
 
 .menu .contai .icons {
     display: flex;
     align-items: center;
-    padding: 2rem;
     gap: 1.5rem;
     box-shadow: var(--black);
-    border-radius: .5rem;
+    border-radius: 3.5rem;
     background: #fff;
+    width: 200px;
 }
 
 .menu .contai .icons i {
@@ -760,7 +764,6 @@ section {
     line-height: 6.5rem;
     font-size: 2.5rem;
     border-radius: 50%;
-    background: #eee;
     color: var(--black);
     text-align: center;
 }
@@ -786,31 +789,6 @@ section {
     box-shadow: var(--box-shadow);
     padding: 2rem;
     border-radius: .5rem;
-}
-
-.order form .display-orders {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    margin-bottom: 2rem;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    padding: 3rem 2rem;
-    background-color: var(--light-bg);
-    border-radius: .5rem;
-}
-
-.order form .display-orders p {
-    font-size: 2rem;
-    color: var(--light-color);
-    background-color: var(--white);
-    padding: 1rem 3rem;
-    border-radius: .5rem;
-    box-shadow: var(--box-shadow);
-}
-
-.order form .display-orders p span {
-    color: var(--red);
 }
 
 .order form .flex {
