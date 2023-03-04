@@ -535,42 +535,60 @@
 
         <h1 class="heading"><span>ORDER</span>now</h1>
 
-        <form action="" method="post">
-
-            <div class="flex">
-                <div class="inputBox">
-                    <span>your name :</span>
-                    <input type="text" name="name" class="box" required placeholder="enter your name" maxlength="20">
+        <form action="">
+            <div class="inputBox">
+                <div class="input">
+                    <span>Your name</span>
+                    <input type="text" placeholder="enter your name">
                 </div>
-                <div class="inputBox">
-                    <span>your number :</span>
-                    <input type="number" name="number" class="box" required placeholder="enter your number" min="0">
-                </div>
-                <div class="inputBox">
-                    <span>payment method</span>
-                    <select name="method" class="box">
-               <option value="cash on delivery">cash on delivery</option>
-               <option value="credit card">credit card</option>
-               <option value="paytm">paytm</option>
-               <option value="paypal">paypal</option>
-            </select>
-                </div>
-                <div class="inputBox">
-                    <span>address line 01 :</span>
-                    <input type="text" name="flat" class="box" required placeholder="e.g. flat no." maxlength="50">
-                </div>
-                <div class="inputBox">
-                    <span>address line 02 :</span>
-                    <input type="text" name="street" class="box" required placeholder="e.g. street name." maxlength="50">
-                </div>
-                <div class="inputBox">
-                    <span>pin code :</span>
-                    <input type="number" name="pin_code" class="box" required placeholder="e.g. 123456" min="0">
+                <div class="input">
+                    <span>Your number</span>
+                    <input type="number" min="1" max="100" value="1" placeholder="enter your number">
                 </div>
             </div>
 
-            <input type="submit" value="order now" class="btn" name="order">
+            <div class="inputBox">
+                <div class="input">
+                    <span>Your order</span>
+                    <input type="text" placeholder="enter food name">
+                </div>
 
+                <div class="input">
+                    <span>How much</span>
+                    <input type="number" min="1" max="100" value="1" placeholder="how many order">
+                </div>
+            </div>
+
+            <div class="inputBox">
+                <div class="input">
+                    <span>Date and time</span>
+                    <input type="datetime-local">
+                </div>
+
+                <div class="input">
+                    <span>Phương thức thanh toán</span>
+                    <select name="thanhtoan" id="Thanh toán">
+                        <option value="tienmat">Tiền mặt</option>
+                        <option value="momo">MoMo</option>
+                        <option value="zalopay">ZaloPay</option>
+                        <option value="the">Thẻ tín dụng</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="inputBox">
+                <div class="input">
+                    <span>Your address</span>
+                    <textarea name="" placeholder="enter your address" id="" col="30" rows="10"></textarea>
+                </div>
+
+                <div class="input">
+                    <span>Your message</span>
+                    <textarea name="" placeholder="enter your message" id="" col="30" rows="10"></textarea>
+                </div>
+            </div>
+
+            <input type="submit" value="order now" class="btn">
         </form>
 
     </section>
