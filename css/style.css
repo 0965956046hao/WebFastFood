@@ -54,7 +54,6 @@ body {
 section {
     padding: 2rem;
     margin: 0;
-    max-width: 1500px;
 }
 
 .heading {
@@ -341,6 +340,7 @@ section {
     flex-wrap: wrap;
     gap: 2rem;
     align-items: flex-start;
+    justify-content: center;
 }
 
 .user-account .flex form {
@@ -348,6 +348,7 @@ section {
     border-radius: .5rem;
     padding: 2rem;
     background-color: var(--light-bg);
+    max-width: 80rem;
 }
 
 .user-account .flex form h3 {
