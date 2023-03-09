@@ -360,6 +360,14 @@ section {
     overflow-y: scroll;
 }
 
+.heart .title {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--black);
+    font-size: 3rem;
+    text-transform: capitalize;
+}
+
 .heart.active {
     right: 0;
 }
@@ -437,6 +445,14 @@ section {
     overflow-y: scroll;
 }
 
+.shopping-cart .title {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--black);
+    font-size: 3rem;
+    text-transform: capitalize;
+}
+
 .shopping-cart.active {
     right: 0;
 }
@@ -503,25 +519,20 @@ section {
 
 .shopping-cart .box .content form .qty {
     border: var(--border);
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     padding: 1rem;
     font-size: 1.8rem;
     color: var(--black);
-    width: 8rem;
+    width: 7rem;
 }
 
-.shopping-cart .box .content form .fa-edit {
-    width: 5.5rem;
+.shopping-cart .box .content select {
+    width: 1rem;
+    border: var(--border);
+    padding: 1rem;
+    border-radius: 0.5rem;
     font-size: 1.7rem;
-    cursor: pointer;
-    border-radius: .5rem;
-    background-color: var(--light-bg);
     color: var(--black);
-}
-
-.shopping-cart .box .content form .fa-edit:hover {
-    background-color: var(--black);
-    color: var(--white);
 }
 
 @keyframes fadeLeft {
