@@ -1,0 +1,69 @@
+
+const Accounts = require('../models/Accounts');
+const Customers = require('../models/Customers');
+
+module.exports ={
+    CreateAccountHandle: function (req){
+        var email = req.body.email;
+        var pass = req.body.pass;
+        var cpass = req.body.cpass;
+      
+        var fullName = "vo pham nhut hao";
+        var age = 21;
+        var local = "q9, hochiminh";
+        var sDT = "123456789";
+        var sex = true;
+        var birth = new Date(2020, 09, 11);
+        //const date = new Date(2020, 09, 11);
+      
+        if(pass == cpass)
+        {
+      
+            const a = Accounts.count({useName: String(email)}).then((count) => {
+                if(count == 0)
+                {
+                    const cus = new Customers({fullName: fullName, age: age, local: local, sDT: sDT, sex: sex, birth: birth});
+                        cus.save().then(() =>{
+                                        console.log("Add Customer success!");
+                                    }).catch((err) =>{
+                                        throw err;
+                                    })
+                    const queryAccounts = Accounts.find();
+                    queryAccounts.count({})
+                    .then((countAll) => {
+                        const acc = new Accounts({customId: cus._id, useName: String(email), passWord: String(pass), dateCreate: Date.now()});
+                        acc.save().then(() =>{
+                                        console.log("Add Account success!");
+                                    }).catch((err) =>{
+                                        throw err;
+                                    })
+                    }).catch((err) =>{
+                        throw err;
+                    })
+                }
+                else
+                alert("usename da ton tai");
+            }).catch((err) =>{
+                throw err;
+            });
+      
+        }
+        else
+          alert("cpass khong đúng");
+        //listDatabases(mmongo);
+      },
+      
+      Login: function (req){
+        var email = req.body.email;
+        var pass = req.body.pass;
+      
+        const queryAccounts = Accounts.find({useName: email, passWord: pass}).then((docs) => {
+            if(docs.length > 0)
+                console.log(docs);
+            else
+                console.log("sai tk hoac mk");
+        }).catch((err) => {
+            throw err;
+        })
+      }
+}
