@@ -3,26 +3,25 @@ const mongoose = require('../config/configs');
 const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
-const CustomersSchema = new Schema({
-    fullName: {
+const PizzasSchema = new Schema({
+    pizzaName: {
         type: String,
         required: true,},
-    age: {
+    cost: {
         type: Number,
         required: true,},
-    local: {
+    describe: {
         type: String,
         required: true,},
-    sDT: {
+    size: {
+        type: Number,
+        required: true,},
+    cakeFilling: {
+        type: Number,
+        required: true,},
+    img: {
         type: String,
-        unique: true,
-        required: true,},
-    sex: {
-        type: Boolean,
-        required: true,},
-    birth: {
-        type: Date,
-        required: true,}
+        required: true,},   
 });
 
-module.exports = mongoose.model('Customers', CustomersSchema);
+module.exports = mongoose.model('Pizzas', PizzasSchema);
