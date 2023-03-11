@@ -621,14 +621,14 @@ section {
     background: url(../images/home.jpg) no-repeat;
     background-size: cover;
     background-position: center;
-    max-width: 1200px;
-    max-height: 500px;
+    /* max-width: 1200px; */
+    max-height: 720px;
     display: block;
     margin: 0 auto;
 }
 
 .home-bg .home .slide-container {
-    margin-top: 10rem;
+    margin-top: 14rem;
 }
 
 .home-bg .home .slide-container .slide {
@@ -643,7 +643,7 @@ section {
 }
 
 .home-bg .home .slide-container .slide .image {
-    flex: 1 1 6rem;
+    flex: 1 1 5rem;
     animation: fadeRight .4s linear;
 }
 
