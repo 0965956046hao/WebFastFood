@@ -64,6 +64,9 @@ section {
     text-transform: uppercase;
 }
 
+
+/*btn-start*/
+
 .btn {
     display: block;
     width: 100%;
@@ -96,6 +99,12 @@ section {
     background: #fff;
     box-shadow: var(--box-shaw);
 }
+
+
+/*btn-end*/
+
+
+/*header-start*/
 
 .header .logoimg {
     align-items: center;
@@ -183,6 +192,12 @@ section {
 .header .search-form label:hover {
     color: var(--orange);
 }
+
+
+/*headr-end*/
+
+
+/*user-start*/
 
 .user-account {
     position: fixed;
@@ -289,6 +304,12 @@ section {
     color: var(--black);
 }
 
+
+/*user-end*/
+
+
+/*myorders-start*/
+
 .my-orders {
     position: fixed;
     top: 0;
@@ -347,6 +368,12 @@ section {
 .my-orders .box p span {
     color: var(--black);
 }
+
+
+/*myorders-end*/
+
+
+/*heart-start*/
 
 .heart {
     position: fixed;
@@ -433,11 +460,17 @@ section {
     color: var(--black);
 }
 
+
+/*heart-end*/
+
+
+/*shoppingcart-start*/
+
 .shopping-cart {
     position: fixed;
     top: 0;
     right: -110%;
-    width: 35rem;
+    width: 42rem;
     z-index: 1100;
     background-color: var(--light-bg);
     border-left: var(--border);
@@ -527,13 +560,78 @@ section {
 }
 
 .shopping-cart .box .content select {
-    width: 1rem;
+    width: 7rem;
     border: var(--border);
-    padding: 1rem;
     border-radius: 0.5rem;
     font-size: 1.7rem;
     color: var(--black);
 }
+
+.shopping-cart .box .content .prices {
+    font-size: 1.7rem;
+    color: var(--black);
+    justify-content: space-between !important;
+    display: flex !important;
+    margin-top: 0.5rem;
+}
+
+.pl-3,
+.px-3 {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+    font-size: 1.5rem;
+}
+
+.mb-2,
+.my-2 {
+    margin-bottom: 0.5rem !important;
+}
+
+.mb-1,
+.my-1 {
+    margin-bottom: 0.25rem !important;
+}
+
+.col-8 {
+    flex: 0 0 66.66667%;
+    max-width: 66.66667%;
+}
+
+.text-secondary {
+    color: #6c757d !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.col-4 {
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.text-danger {
+    color: var(--orange) !important;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+
+/*shoppingcart-end*/
 
 @keyframes fadeLeft {
     0% {
@@ -546,6 +644,9 @@ section {
         transform: translateX(-5rem);
     }
 }
+
+
+/*homebg-start*/
 
 .home-bg {
     background: url(../images/home.jpg) no-repeat;
@@ -612,6 +713,12 @@ section {
     color: var(--white);
 }
 
+
+/*homebg-end*/
+
+
+/*about-start*/
+
 .about h1 span {
     color: var(--orange);
     margin-right: 10px;
@@ -649,6 +756,12 @@ section {
     font-size: 1.6rem;
     color: var(--light-color);
 }
+
+
+/*about-end*/
+
+
+/*menu-start*/
 
 .menu h1 span {
     color: var(--orange);
@@ -745,6 +858,12 @@ section {
     color: var(--orange);
 }
 
+
+/*menu-end*/
+
+
+/*contai-start*/
+
 .contai {
     padding-top: 3rem;
     padding-bottom: 3rem;
@@ -794,6 +913,12 @@ section {
 .menu .contai .icons:hover .content {
     color: var(--orange);
 }
+
+
+/*contai-end*/
+
+
+/*order-start*/
 
 .order h1 span {
     color: var(--orange);
@@ -852,6 +977,12 @@ section {
     font-size: 1.5rem;
     color: var(--black);
 }
+
+
+/*order-end*/
+
+
+/*footer-start*/
 
 .footer {
     background: #fff;
@@ -961,6 +1092,9 @@ section {
 }
 
 
+/*footer-end*/
+
+
 /* media queries  */
 
 @media (max-width:991px) {
@@ -1017,3 +1151,6 @@ section {
         grid-template-columns: 1fr;
     }
 }
+
+
+/* media queries  */

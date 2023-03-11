@@ -153,7 +153,6 @@
                 <div class="content">
                     <p>pizza-1</p>
                     <form action="" method="post">
-                        <input type="number" class="qty" name="qty" min="1" value="2" max="100">
                         <select name="size" id="size">
                             <option value="nho">Lớn</option>
                             <option value="vua">Nhỏ</option>
@@ -164,7 +163,9 @@
                             <option value="dekeotay">Đế Kéo Tay Truyền Thống</option>
                             <option value="gionxop">Đế Giòn Xốp</option>
                           </select>
+                        <input type="number" class="qty" name="qty" min="1" value="2" max="100">
                     </form>
+                    <div class="prices"><span>Giá</span>$20</div>
                 </div>
             </div>
 
@@ -174,7 +175,6 @@
                 <div class="content">
                     <p>pizza-3</p>
                     <form action="" method="post">
-                        <input type="number" class="qty" name="qty" min="1" value="1" max="100">
                         <select name="size" id="size">
                             <option value="nho">Lớn</option>
                             <option value="vua">Nhỏ</option>
@@ -184,9 +184,10 @@
                             <option value="demonggion">Đế Mỏng Giòn</option>
                             <option value="dekeotay">Đế Kéo Tay Truyền Thống</option>
                             <option value="gionxop">Đế Giòn Xốp</option>
-                          </select>
-
+                        </select>
+                        <input type="number" class="qty" name="qty" min="1" value="1" max="100">
                     </form>
+                    <div class="prices"><span>Giá</span>$20</div>
                 </div>
             </div>
 
@@ -196,7 +197,6 @@
                 <div class="content">
                     <p>pizza-6</p>
                     <form action="" method="post">
-                        <input type="number" class="qty" name="qty" min="1" value="2" max="100">
                         <select name="size" id="size">
                             <option value="nho">Lớn</option>
                             <option value="vua">Nhỏ</option>
@@ -207,7 +207,9 @@
                             <option value="dekeotay">Đế Kéo Tay Truyền Thống</option>
                             <option value="gionxop">Đế Giòn Xốp</option>
                           </select>
+                        <input type="number" class="qty" name="qty" min="1" value="2" max="100">
                     </form>
+                    <div class="prices"><span>Giá</span>$16</div>
                 </div>
             </div>
 
@@ -217,7 +219,6 @@
                 <div class="content">
                     <p>pizza-7</p>
                     <form action="" method="post">
-                        <input type="number" class="qty" name="qty" min="1" value="1" max="100">
                         <select name="size" id="size">
                             <option value="nho">Lớn</option>
                             <option value="vua">Nhỏ</option>
@@ -228,11 +229,63 @@
                             <option value="dekeotay">Đế Kéo Tay Truyền Thống</option>
                             <option value="gionxop">Đế Giòn Xốp</option>
                           </select>
+                        <input type="number" class="qty" name="qty" min="1" value="1" max="100">
                     </form>
+                    <div class="prices"><span>Giá</span>$17</div>
                 </div>
             </div>
-
-            <a href="#order" class="btn">order now</a>
+            <div class="org-cart-confirm my-3">
+                <div class="px-3">
+                    <div class="cart_summary mb-2 ">
+                        <div class="row mb-1 cart_summary-total">
+                            <div class="col-8">
+                                <span class="text-secondary">Tổng</span>
+                            </div>
+                            <div class="col-4 text-right">
+                                <span class=""><span>$73</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row mb-1 cart_summary-promotion">
+                            <div class="col-8">
+                                <span class="text-secondary">Giảm K.Mãi</span>
+                            </div>
+                            <div class="col-4 text-right">
+                                <span class="text-danger">
+                                <span>$0</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row mb-1 cart_summary-voucher">
+                            <div class="col-8">
+                                <span class="text-secondary">Giảm Vouchers</span>
+                            </div>
+                            <div class="col-4 text-right">
+                                <span class="text-danger">
+                                <span>$0</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row mb-1 cart_summary-shipping">
+                            <div class="col-8">
+                                <span class="text-secondary">Phí giao hàng</span>
+                            </div>
+                            <div class="col-4 text-right">
+                                <span class="text-danger">
+                                <span>$0</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-danger"></p>
+                </div>
+                <button class="btn w-100 ">
+                HOÀN TẤT ĐƠN HÀNG
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <span>$73</span>
+            </button>
+            </div>
+            <!--a href="#order" class="btn">order now</a-->
 
         </section>
 
@@ -580,7 +633,7 @@
                 </div>
                 <div class="input">
                     <span>Your number</span>
-                    <input type="number" min="1" max="100" value="1" placeholder="enter your number">
+                    <input type="text" placeholder="enter your number">
                 </div>
             </div>
 
