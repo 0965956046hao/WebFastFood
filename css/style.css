@@ -466,6 +466,12 @@ section {
 
 /*shoppingcart-start*/
 
+.h-scrollbar {
+    overflow-x: scroll;
+    width: 370px;
+    height: 400px;
+}
+
 .shopping-cart {
     position: fixed;
     top: 0;
@@ -475,7 +481,6 @@ section {
     background-color: var(--light-bg);
     border-left: var(--border);
     height: 100vh;
-    overflow-y: scroll;
 }
 
 .shopping-cart .title {
@@ -577,6 +582,7 @@ section {
 
 .pl-3,
 .px-3 {
+    padding-top: 3rem;
     padding-left: 2rem !important;
     padding-right: 2rem !important;
     font-size: 1.5rem;
