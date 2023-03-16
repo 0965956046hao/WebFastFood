@@ -780,6 +780,7 @@ p {
     gap: 1.5rem;
     align-items: flex-start;
     justify-content: center;
+    padding-top: 3rem;
 }
 
 .menu .box-container .box {
@@ -878,7 +879,6 @@ p {
     gap: 3rem;
     background: var(--orange);
     margin-top: 3rem;
-    margin-bottom: 3rem;
     margin-left: 20px;
     margin-right: 20px;
     border-radius: 0.5rem;
