@@ -1,5 +1,5 @@
 var express = require('express');
-var accountsControleer = require('../controllers/accountController');
+var accountsControleer = require('../controllers/login&registerCtrl');
 var router = express.Router();
 
 /* GET home page. */

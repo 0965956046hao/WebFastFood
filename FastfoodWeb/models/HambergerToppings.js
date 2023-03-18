@@ -1,4 +1,4 @@
-const mongoose = require('../config/configs');
+const mongoose = require('../configs/configs');
 
 const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
