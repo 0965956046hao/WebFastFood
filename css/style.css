@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Damion&display=swap');
 :root {
     --orange: #ff7800;
-    --black: #000000;
+    --black: #130f40;
     --light-color: #666;
     --box-shaw: 0 .5rem 1rem rgba(0, 0, 0, .1);
     --border: .2rem solid rgba(0, 0, 0, .1);
@@ -22,7 +22,6 @@
     outline: none;
     border: none;
     text-decoration: none;
-    text-transform: capitalize;
     transition: all .2s linear;
 }
 
@@ -52,7 +51,7 @@ body {
 }
 
 section {
-    padding: 2rem;
+    padding: 3rem;
     margin: 0;
 }
 
@@ -63,6 +62,9 @@ section {
     color: var(--black);
     text-transform: uppercase;
 }
+
+
+/*btn-start*/
 
 .btn {
     display: block;
@@ -90,95 +92,23 @@ section {
     right: 0;
     z-index: 1000;
     display: flex;
-    /* align-items: center;
-    justify-content: space-between; */
-    padding: 0 10px 0px 10px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 9%;
     background: #fff;
     box-shadow: var(--box-shaw);
 }
 
 
-/* new */
-
-.grid {
-    height: 120px;
-    max-width: 100%;
-    margin: 0 auto;
-}
-
-.header-summary {
-    width: 1800px;
-}
-
-.header-navbar {
-    display: flex;
-    justify-content: space-between;
-    padding: 3px;
-    height: var(--navbar-height);
-}
-
-.header-another-part {
-    height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.header-navbar-list {
-    list-style: none;
-    padding-left: 0;
-}
-
-.header-navbar-items {
-    margin: 0 8px;
-    position: relative;
-}
-
-.header-navbar-items,
-.header-navbar-items-link {
-    display: inline-block;
-    font-size: 14px;
-    color: var(--white-color);
-    text-decoration: none;
-}
-
-.header-navbar-items-link:hover {
-    color: #bfdef2;
-    cursor: pointer;
-}
-
-.header-navbar-items-strong {
-    font-weight: 500;
-}
-
-.header-navbar-items-separate::after {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 1px;
-    height: 12px;
-    background-color: #bfdef2;
-    top: 50%;
-    right: -9px;
-    transform: translateY(-50%);
-}
-
-.header-navbar-items-cover {
-    background-color: #db5521;
-    border-radius: 30px;
-    margin: 0 20px;
-    padding: 4px 12px;
-}
+/*btn-end*/
 
 
-/* end */
+/*header-start*/
 
 .header .logoimg {
     align-items: center;
-    justify-content: center;
     display: flex;
     position: relative;
-    padding-left: 150px;
 }
 
 .header .logoimg .logo {
@@ -189,8 +119,8 @@ section {
 }
 
 .header .logoimg img {
-    width: 9rem;
-    height: 7rem;
+    width: 8rem;
+    height: 5rem;
 }
 
 .header .navbar a {
@@ -261,6 +191,12 @@ section {
 .header .search-form label:hover {
     color: var(--orange);
 }
+
+
+/*headr-end*/
+
+
+/*user-start*/
 
 .user-account {
     position: fixed;
@@ -369,6 +305,12 @@ section {
     color: var(--black);
 }
 
+
+/*user-end*/
+
+
+/*myorders-start*/
+
 .my-orders {
     position: fixed;
     top: 0;
@@ -428,6 +370,12 @@ section {
     color: var(--black);
 }
 
+
+/*myorders-end*/
+
+
+/*heart-start*/
+
 .heart {
     position: fixed;
     top: 0;
@@ -438,6 +386,14 @@ section {
     border-left: var(--border);
     height: 100vh;
     overflow-y: scroll;
+}
+
+.heart .title {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--black);
+    font-size: 3rem;
+    text-transform: capitalize;
 }
 
 .heart.active {
@@ -505,16 +461,35 @@ section {
     color: var(--black);
 }
 
+
+/*heart-end*/
+
+
+/*shoppingcart-start*/
+
+.h-scrollbar {
+    overflow-x: scroll;
+    width: 370px;
+    height: 400px;
+}
+
 .shopping-cart {
     position: fixed;
     top: 0;
     right: -110%;
-    width: 35rem;
+    width: 42rem;
     z-index: 1100;
     background-color: var(--light-bg);
     border-left: var(--border);
     height: 100vh;
-    overflow-y: scroll;
+}
+
+.shopping-cart .title {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--black);
+    font-size: 3rem;
+    text-transform: capitalize;
 }
 
 .shopping-cart.active {
@@ -583,26 +558,87 @@ section {
 
 .shopping-cart .box .content form .qty {
     border: var(--border);
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     padding: 1rem;
     font-size: 1.8rem;
     color: var(--black);
-    width: 8rem;
+    width: 7rem;
 }
 
-.shopping-cart .box .content form .fa-edit {
-    width: 5.5rem;
+.shopping-cart .box .content select {
+    width: 7rem;
+    border: var(--border);
+    border-radius: 0.5rem;
     font-size: 1.7rem;
-    cursor: pointer;
-    border-radius: .5rem;
-    background-color: var(--light-bg);
     color: var(--black);
 }
 
-.shopping-cart .box .content form .fa-edit:hover {
-    background-color: var(--black);
-    color: var(--white);
+.shopping-cart .box .content .prices {
+    font-size: 1.7rem;
+    color: var(--black);
+    justify-content: space-between !important;
+    display: flex !important;
+    margin-top: 0.5rem;
 }
+
+.pl-3,
+.px-3 {
+    padding-top: 3rem;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+    font-size: 1.5rem;
+}
+
+.mb-2,
+.my-2 {
+    margin-bottom: 0.5rem !important;
+}
+
+.mb-1,
+.my-1 {
+    margin-bottom: 0.25rem !important;
+}
+
+.col-8 {
+    flex: 0 0 66.66667%;
+    max-width: 66.66667%;
+}
+
+.text-secondary {
+    color: #6c757d !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.col-4 {
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.text-danger {
+    color: var(--orange) !important;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+
+/*shoppingcart-end*/
 
 @keyframes fadeLeft {
     0% {
@@ -615,6 +651,9 @@ section {
         transform: translateX(-5rem);
     }
 }
+
+
+/*homebg-start*/
 
 .home-bg {
     padding-top: 50px;
@@ -659,9 +698,6 @@ section {
 }
 
 .home-bg .home .slide-container .slide .content h3 {
-    color: var(--black);
-    border-radius: 20px;
-    background-color: var(--orange);
     margin-bottom: 3rem;
     text-transform: capitalize;
     font-size: 7.5rem;
@@ -688,6 +724,12 @@ section {
     background-color: var(--orange);
     color: var(--white);
 }
+
+
+/*homebg-end*/
+
+
+/*about-start*/
 
 .about h1 span {
     color: var(--orange);
@@ -727,6 +769,12 @@ section {
     color: var(--light-color);
 }
 
+
+/*about-end*/
+
+
+/*menu-start*/
+
 .menu h1 span {
     color: var(--orange);
     margin-right: 10px;
@@ -738,6 +786,7 @@ section {
     gap: 1.5rem;
     align-items: flex-start;
     justify-content: center;
+    padding-top: 3rem;
 }
 
 .menu .box-container .box {
@@ -822,161 +871,240 @@ section {
     color: var(--orange);
 }
 
-.order form {
-    background-color: var(--white);
-    box-shadow: var(--box-shadow);
-    padding: 2rem;
-    border-radius: .5rem;
-}
 
-.order form .display-orders {
+/*menu-end*/
+
+
+/*contai-start*/
+
+.contai {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
     display: flex;
-    align-items: flex-start;
     justify-content: center;
-    margin-bottom: 2rem;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    padding: 3rem 2rem;
-    background-color: var(--light-bg);
-    border-radius: .5rem;
+    gap: 3rem;
+    background: var(--orange);
+    margin-top: 3rem;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 0.5rem;
 }
 
-.order form .display-orders p {
+.menu .contai .icons {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: var(--black);
+    border-radius: 3.5rem;
+    background: #fff;
+    width: 200px;
+}
+
+.menu .contai .icons i {
+    height: 6.5rem;
+    width: 6.5rem;
+    line-height: 6.5rem;
+    font-size: 2.5rem;
+    border-radius: 50%;
+    color: var(--black);
+    text-align: center;
+}
+
+.menu .contai .icons .content {
     font-size: 2rem;
-    color: var(--light-color);
-    background-color: var(--white);
-    padding: 1rem 3rem;
+}
+
+.menu .contai .icons:hover {
+    background: var(--black);
+}
+
+.menu .contai .icons:hover i {
+    background: var(--orange);
+}
+
+.menu .contai .icons:hover .content {
+    color: var(--orange);
+}
+
+
+/*contai-end*/
+
+
+/*order-start*/
+
+.order h1 span {
+    color: var(--orange);
+    margin-right: 10px;
+}
+
+.order form {
+    width: 90rem;
     border-radius: .5rem;
     box-shadow: var(--box-shadow);
-}
-
-.order form .display-orders p span {
-    color: var(--red);
-}
-
-.order form .flex {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    justify-content: space-between;
-}
-
-.order form .flex .inputBox {
-    width: 49%;
-}
-
-.order form .flex .inputBox span {
-    font-size: 1.8rem;
-    color: var(--light-color);
-}
-
-.order form .flex .inputBox .box {
-    width: 100%;
-    background-color: var(--light-bg);
-    padding: 1.4rem;
-    font-size: 1.8rem;
-    color: var(--black);
-    border-radius: .5rem;
-    margin: 1rem 0;
-}
-
-.faq .accordion-container {
-    max-width: 70rem;
+    border: .1rem solid rgba(0, 0, 0, .1);
+    background: #fff;
+    padding: 1.5rem;
     margin: 0 auto;
 }
 
-.faq .accordion-container .accordion {
-    margin: 1.5rem 0;
-    box-shadow: var(--box-shadow);
-}
-
-.faq .accordion-container .accordion .accordion-heading {
-    padding: 1.5rem;
-    background: var(--black);
-    color: var(--white);
-    cursor: pointer;
-    font-size: 2rem;
+.order form .inputBox {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: space-between;
-    gap: 1.5rem;
 }
 
-.faq .accordion-container .accordion .accrodion-content {
-    padding: 2rem;
-    background-color: var(--white);
-    line-height: 2;
+.order form .inputBox .input {
+    width: 49%;
+}
+
+.order form .inputBox .input span {
+    display: block;
+    padding: .5rem 0;
+    font-size: 1.5rem;
     color: var(--light-color);
-    font-size: 1.6rem;
-    display: none;
 }
 
-.faq .accordion-container .accordion.active .accrodion-content {
-    display: inline-block;
+.order form .inputBox .input input,
+.order form .inputBox .input textarea {
+    background: #eee;
+    border-radius: .5rem;
+    padding: 1rem;
+    font-size: 1.5rem;
+    color: var(--black);
+    text-transform: none;
+    margin-bottom: 1rem;
+    width: 100%;
 }
 
-.faq .accordion-container .accordion.active .accordion-heading {
-    background: var(--red);
+.order form .inputBox .input textarea {
+    height: 20rem;
+    resize: none;
 }
 
-.faq .accordion-container .accordion.active .accordion-heading i {
-    transform: rotate(180deg);
+.order form .inputBox .input select {
+    width: 42.5rem;
+    border: var(--border);
+    padding: 0.87rem;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    color: var(--black);
+}
+
+
+/*order-end*/
+
+
+/*footer-start*/
+
+.footer {
+    background: #fff;
 }
 
 .footer .box-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
     gap: 1.5rem;
-    align-items: flex-start;
-    justify-content: center;
-}
-
-.footer .box-container .box {
-    padding: 2rem;
-    text-align: center;
-    background-color: var(--white);
-    box-shadow: var(--box-shadow);
-    border-radius: .5rem;
-}
-
-.footer .box-container .box i {
-    height: 6rem;
-    width: 6rem;
-    line-height: 6rem;
-    font-size: 2rem;
-    color: var(--white);
-    background-color: var(--red);
-    border-radius: 50%;
-    margin-bottom: .5rem;
 }
 
 .footer .box-container .box h3 {
-    margin: 1rem 0;
+    font-size: 2.5rem;
     color: var(--black);
-    text-transform: capitalize;
-    font-size: 2rem;
+    padding: 1rem 0;
+}
+
+.footer .box-container .box h3 i {
+    color: var(--orange);
+}
+
+.footer .box-container .box .logoimg {
+    align-items: center;
+    display: flex;
+    position: relative;
+}
+
+.footer .box-container .box .links {
+    display: block;
+    font-size: 1.5rem;
+    color: var(--light-color);
+    padding: 1rem 0;
+}
+
+.footer .box-container .box .links i {
+    color: var(--orange);
+    padding-right: .5rem;
+}
+
+.footer .box-container .box .links:hover i {
+    padding-right: 2rem;
 }
 
 .footer .box-container .box p {
-    line-height: 2;
-    font-size: 1.6rem;
+    line-height: 1.8rem;
+    font-size: 1.5rem;
     color: var(--light-color);
+    padding: 1rem 0;
 }
 
-.footer .credit {
-    text-align: center;
-    margin-top: 3rem;
-    padding: 1rem 0;
-    padding-top: 3rem;
-    border-top: var(--border);
+.footer .box-container .box .share a {
+    height: 4rem;
+    width: 4rem;
+    line-height: 4rem;
+    border-radius: .5rem;
     font-size: 2rem;
     color: var(--black);
-    /* padding-bottom: 8rem; */
+    margin-left: 2rem;
+    background: #eee;
+    text-align: center;
 }
 
-.footer .credit span {
-    color: var(--red);
+.footer .box-container .box .share a:hover {
+    background: var(--orange);
+    color: #fff;
 }
+
+.footer .box-container .box .email {
+    width: 100%;
+    margin: .7rem 0;
+    padding: 1rem;
+    border-radius: .5rem;
+    background: #eee;
+    font-size: 1.6rem;
+    color: var(--black);
+    text-transform: none;
+}
+
+.footer .box-container .box .shares a {
+    height: 4rem;
+    width: 4rem;
+    line-height: 4rem;
+    border-radius: .5rem;
+    font-size: 2rem;
+    color: var(--black);
+    margin-top: 1.5rem;
+    margin-left: 1.5rem;
+    background: #eee;
+    text-align: center;
+}
+
+.footer .box-container .box .shares a:hover {
+    background: var(--orange);
+    color: #fff;
+}
+
+.footer .box-container .box .logoimg .logo {
+    font-size: 2.5rem;
+    color: var(--black);
+    font-family: Damion;
+    font-weight: bolder;
+}
+
+.footer .box-container .box .logoimg img {
+    width: 7rem;
+    height: 4rem;
+}
+
+
+/*footer-end*/
 
 
 /* media queries  */
@@ -1035,3 +1163,6 @@ section {
         grid-template-columns: 1fr;
     }
 }
+
+
+/* media queries  */
