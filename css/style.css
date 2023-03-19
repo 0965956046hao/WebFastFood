@@ -53,6 +53,7 @@ body {
 section {
     padding: 1.5rem;
     margin: 0;
+    max-width: 1700rem;
 }
 
 .heading {
@@ -277,7 +278,6 @@ section {
     flex-wrap: wrap;
     gap: 2rem;
     align-items: flex-start;
-    justify-content: center;
 }
 
 .user-account .flex form {
@@ -285,7 +285,6 @@ section {
     border-radius: .5rem;
     padding: 2rem;
     background-color: var(--light-bg);
-    max-width: 80rem;
 }
 
 .user-account .flex form h3 {
@@ -471,7 +470,7 @@ section {
 .h-scrollbar {
     overflow-x: scroll;
     width: 400px;
-    height: 470px;
+    height: 430px;
 }
 
 .shopping-cart {
@@ -565,7 +564,7 @@ section {
 }
 
 .shopping-cart .box .content select {
-    width: 10rem;
+    width: 9.5rem;
     border: var(--border);
     border-radius: 0.5rem;
     font-size: 1.7rem;
@@ -655,18 +654,13 @@ p {
 /*homebg-start*/
 
 .home-bg {
-    padding-top: 50px;
     background: url(../images/home.jpg) no-repeat;
     background-size: cover;
     background-position: center;
-    /* max-width: 1200px; */
-    max-height: 720px;
-    display: block;
-    margin: 0 auto;
 }
 
 .home-bg .home .slide-container {
-    margin-top: 14rem;
+    margin-top: 10rem;
 }
 
 .home-bg .home .slide-container .slide {
@@ -681,7 +675,7 @@ p {
 }
 
 .home-bg .home .slide-container .slide .image {
-    flex: 1 1 5rem;
+    flex: 1 1 40rem;
     animation: fadeRight .4s linear;
 }
 
@@ -690,13 +684,13 @@ p {
 }
 
 .home-bg .home .slide-container .slide .content {
-    padding-top: 50px;
     flex: 1 1 40rem;
     text-align: center;
     animation: fadeLeft .4s linear;
 }
 
 .home-bg .home .slide-container .slide .content h3 {
+    color: crimson;
     margin-bottom: 3rem;
     text-transform: capitalize;
     font-size: 7.5rem;
