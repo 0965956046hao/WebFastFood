@@ -169,7 +169,7 @@ section {
 }
 
 .header .search-form.active {
-    right: 2rem;
+    right: 28%;
     transition: .3s linear;
 }
 
@@ -476,11 +476,10 @@ section {
 .shopping-cart {
     position: fixed;
     top: 0;
-    right: -110%;
+    right: 0%;
     width: 42rem;
     z-index: 1100;
     background-color: var(--light-bg);
-    border-left: var(--border);
     height: 100vh;
 }
 
@@ -558,21 +557,20 @@ section {
     border: var(--border);
     border-radius: 0.5rem;
     padding: 1rem;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: var(--black);
-    width: 7rem;
+    width: 5rem;
 }
 
 .shopping-cart .box .content select {
-    width: 9.5rem;
     border: var(--border);
     border-radius: 0.5rem;
-    font-size: 1.7rem;
+    font-size: 1.2rem;
     color: var(--black);
 }
 
 .shopping-cart .box .content .prices {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     color: var(--black);
     justify-content: space-between !important;
     display: flex !important;
