@@ -7,8 +7,11 @@ document.querySelector('#search-btn').onclick = () => {
 let account = document.querySelector('.user-account');
 
 document.querySelector('#user-btn').onclick = () => {
-    account.classList.add('active');
-}
+        account.classList.add('active');
+    }
+    // let register = document.querySelector('.user-account-register');
+    // document.querySelector('#user-btn').onclick = () => {
+    //         register.classList.add('active');
 
 document.querySelector('#close-account').onclick = () => {
     account.classList.remove('active');
