@@ -11,66 +11,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <!-- custom css file link  -->
     <link rel=" stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/login.css">
 </head>
 
 <body>
     <!-- header section starts  -->
     <header class="header">
-        <div class="header-summary">
-            <nav class="header-navbar">
-                <ul class="header-navbar-list">
-                    <li class="header-navbar-items header-navbar-items-separate">Hotline đặt hàng(Miễn phí)</li>
-                    <li class="header-navbar-items header-navbar-items-separate header-navbar-items-cover"><i class="fa fa-phone"></i></i>18006089</li>
-                </ul>
-                <ul class="header-navbar-list">
-                    <li class="header-navbar-items header-navbar-items-separate">
-                        <a href="#" class="header-navbar-items-link">Cẩm nang mua hàng</a>
-                    </li>
-                    <li class="header-navbar-items header-navbar-items-separate">
-                        <a href="https://cookpad.com/vn/tim-kiem/pizza" target="_blank" class="header-navbar-items-link">Bí quyết ăn ngon</a>
-                    </li>
-                    <li class="header-navbar-items header-navbar-items-separate"><i class="fa-solid fa-location-dot"></i></i>1244 Kha vạn cân</li>
-                    <!-- <li class="header-navbar-items header-navbar-items-strong header-navbar-items-separate">
-                        Đăng kí
-                    </li>
-                    <li class="header-navbar-items header-navbar-items-strong">
-                        <i class="fa fa-user"></i> Đăng nhập
-                    </li> -->
-                </ul>
+        <div class="logoimg">
+            <img src="./images/pizza.png" alt>
+            <a href="#home" class="logo">Fast Fun</a>
+        </div>
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#menu">Menu</a>
+            <a href="#order">Order</a>
+            <a href="#khuyenmai">Khuyến Mãi</a>
 
+        </nav>
 
-            </nav>
-            <div class="header-another-part">
-                <div class="logoimg">
-                    <img src="./images/pizza.png" alt>
-                    <a href="#home" class="logo">Fast Fun</a>
-                </div>
-                <nav class="navbar">
-                    <a href="#menu">Menu</a>
-                    <a href="#order">Order</a>
-                    <a href="#menu">Khuyến mãi</a>
-                    <a href="#menu">Gà giòn</a>
-                    <a href="#menu">Thức uống</a>
-                    <a href="#menu">Mỳ ý</a>
-                    <a href="#menu">Kem</a>
-
-
-                </nav>
-
-                <div class="icons">
-                    <div id="search-btn" class="fas fa-search"></div>
-                    <div id="user-btn" class="fas fa-user"></div>
-                    <div id="order-btn" class="fas fa-box"></div>
-                    <div id="heart-btn" class="fa-solid fa-heart"></div>
-                    <div id="cart-btn" class="fas fa-shopping-cart"><span>(4)</span></div>
-                </div>
-
-                <form action="" class="search-form">
-                    <input type="search" id="search-box" placeholder="search here .....">
-                    <label for="search-box" class="fas fa-search"></label>
-                </form>
-            </div>
+        <div class="icons">
+            <div id="search-btn" class="fas fa-search"></div>
+            <div id="user-btn" class="fas fa-user"></div>
+            <div id="order-btn" class="fas fa-box"></div>
+            <div id="heart-btn" class="fa-solid fa-heart"></div>
+            <div id="cart-btn" class="fas fa-shopping-cart"><span>(4)</span></div>
         </div>
 
         <form action="" class="search-form">
@@ -89,66 +53,23 @@
             <div id="close-account"><span>close</span></div>
 
             <div class="user">
-                <h1>you are not logged in now!</h1>
+                <p><span>you are not logged in now!</span></p>
+            </div>
+
+            <div class="display-orders">
+                <p>pizza-1 <span>( $3/- x 2 )</span></p>
+                <p>pizza 03 <span>( $2/- x 1 )</span></p>
+                <p>pizza 06 <span>( $4/- x 4 )</span></p>
+                <p>pizza 07 <span>( $2/- x 1 )</span></p>
             </div>
 
             <div class="flex">
-                <div class="container" id="container">
-                    <div class="form-container sign-up-container">
-                        <form action="#">
-                            <h1>Create Account</h1>
-                            <div class="social-container">
-                                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                            <span>or use your email for registration</span>
-                            <input type="text" placeholder="Name" />
-                            <input type="email" placeholder="Email" />
-                            <input type="password" placeholder="Password" />
-                            <input type="text" placeholder="Phonenumber">
-                            <input type="text" placeholder="Adress">
-                            <button>Sign Up</button>
-                        </form>
-                    </div>
-                    <div class="form-container sign-in-container">
-                        <form action="#">
-                            <h1>Sign in</h1>
-                            <div class="social-container">
-                                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                            <span>or use your account</span>
-                            <input type="email" placeholder="Email" />
-                            <input type="password" placeholder="Password" />
-                            <a href="#">Forgot your password?</a>
-                            <button>Sign In</button>
-                        </form>
-                    </div>
-                    <div class="overlay-container">
-                        <div class="overlay">
-                            <div class="overlay-panel overlay-left">
-                                <h1>Welcome Back!</h1>
-                                <p>To keep connected with us please login with your personal info</p>
-                                <button class="ghost" id="signIn">Sign In</button>
-                            </div>
-                            <div class="overlay-panel overlay-right">
-                                <h1>Hello, Friend!</h1>
-                                <p>Enter your personal details and start journey with us</p>
-                                <button class="ghost" id="signUp">Sign Up</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- <form action="" method="post">
+
+                <form action="" method="post">
                     <h3>login now</h3>
                     <input type="email" name="email" required class="box" placeholder="enter your email" maxlength="50">
                     <input type="password" name="pass" required class="box" placeholder="enter your password" maxlength="20">
                     <input type="submit" value="login now" name="login" class="btn">
-                    <h3>You don't have account?
-                        <a href="resgiter.html">Sign up</a>
-                        </h6>
                 </form>
 
                 <form action="" method="post">
@@ -158,25 +79,13 @@
                     <input type="password" name="pass" required class="box" placeholder="enter your password" maxlength="20">
                     <input type="password" name="cpass" required class="box" placeholder="confirm your password" maxlength="20">
                     <input type="submit" value="register now" name="register" class="btn">
-                </form> -->
+                </form>
 
             </div>
 
         </section>
 
     </div>
-    <!-- <div class="user-account-register">
-        <div class="flex">
-            <form action="" method="post">
-                <h3>register now</h3>
-                <input type="text" name="name" required class="box" placeholder="enter your name" maxlength="20">
-                <input type="email" name="email" required class="box" placeholder="enter your email" maxlength="50">
-                <input type="password" name="pass" required class="box" placeholder="enter your password" maxlength="20">
-                <input type="password" name="cpass" required class="box" placeholder="confirm your password" maxlength="20">
-                <input type="submit" value="register now" name="register" class="btn"> 
-            </form>
-        </div>
-    </div> -->
 
     <div class="my-orders">
 
@@ -423,7 +332,6 @@
                     </div>
                 </div>
 
-
             </div>
 
         </section>
@@ -434,7 +342,7 @@
     <!-- about section starts  -->
     <section class="about" id="about">
 
-        <h1 class="heading">about us</h1>
+        <h1 class="heading"><span>ABOUT</span>us</h1>
 
         <div class="box-container">
 
@@ -467,6 +375,7 @@
 
     <!-- menu section starts  -->
     <section id="menu" class="menu">
+
         <div class="contai">
             <div class="icons">
                 <i class="fa-solid fa-pizza-slice"></i>
@@ -498,6 +407,7 @@
         </div>
 
         <h1 class="heading">our <span>PIZZAS</span></h1>
+
         <div class="box-container">
             <div class="box">
                 <div class="price">$<span>17</span>/-</div>
@@ -1108,19 +1018,7 @@
 
     <!-- custom js file link  -->
     <script src="./js/script.js"></script>
-    <script>
-        const signUpButton = document.getElementById('signUp');
-        const signInButton = document.getElementById('signIn');
-        const container = document.getElementById('container');
 
-        signUpButton.addEventListener('click', () => {
-            container.classList.add('right-panel-active');
-        });
-
-        signInButton.addEventListener('click', () => {
-            container.classList.remove('right-panel-active');
-        });
-    </script>/
 </body>
 
 </html>
