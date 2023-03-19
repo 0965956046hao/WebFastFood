@@ -15,12 +15,12 @@
 
 <body>
     <!-- header section starts  -->
-    <header class="header">
-        <div class="logoimg">
+    <header class="header"style=" right: 42rem;">
+        <div class="logoimg"style="margin-left: -10%;">
             <img src="./images/pizza.png" alt>
             <a href="#home" class="logo">Fast Fun</a>
         </div>
-        <div class="icons" style="margin-right: 24%;" >
+        <div class="icons" style="margin-right: -15%;" >
             <div id="search-btn" class="fas fa-search"></div>
             <div id="user-btn" class="fas fa-user"></div>
             <div id="order-btn" class="fas fa-box"></div>
@@ -36,47 +36,7 @@
 
 
     <!--account, order, shopping cart starts-->
-    <div class="user-account">
-
-        <section>
-
-            <div id="close-account"><span>close</span></div>
-
-            <div class="user">
-                <p><span>you are not logged in now!</span></p>
-            </div>
-
-            <div class="display-orders">
-                <p>pizza-1 <span>( $3/- x 2 )</span></p>
-                <p>pizza 03 <span>( $2/- x 1 )</span></p>
-                <p>pizza 06 <span>( $4/- x 4 )</span></p>
-                <p>pizza 07 <span>( $2/- x 1 )</span></p>
-            </div>
-
-            <div class="flex">
-
-                <form action="" method="post">
-                    <h3>login now</h3>
-                    <input type="email" name="email" required class="box" placeholder="enter your email" maxlength="50">
-                    <input type="password" name="pass" required class="box" placeholder="enter your password" maxlength="20">
-                    <input type="submit" value="login now" name="login" class="btn">
-                </form>
-
-                <form action="" method="post">
-                    <h3>register now</h3>
-                    <input type="text" name="name" required class="box" placeholder="enter your name" maxlength="20">
-                    <input type="email" name="email" required class="box" placeholder="enter your email" maxlength="50">
-                    <input type="password" name="pass" required class="box" placeholder="enter your password" maxlength="20">
-                    <input type="password" name="cpass" required class="box" placeholder="confirm your password" maxlength="20">
-                    <input type="submit" value="register now" name="register" class="btn">
-                </form>
-
-            </div>
-
-        </section>
-
-    </div>
-
+   
     <div class="my-orders">
 
         <section>
@@ -134,8 +94,6 @@
     <div class="shopping-cart">
 
         <section>
-
-            <div id="close-cart"><span>close</span></div>
             <h3 class="title"> my cart </h3>
             <div class="h-scrollbar">
                 <div class="box">
@@ -284,121 +242,12 @@
     <!--account, order, shopping cart ends-->
 
     <!--home section starts-->
-    <div class="home-bg">
-
-        <section class="home" id="home">
-
-            <div class="slide-container">
-
-                <div class="slide active">
-                    <div class="image">
-                        <img src="./images/home-img-1.png" alt="">
-                    </div>
-                    <div class="content">
-                        <h3>homemade Pepperoni Pizza</h3>
-                        <div class="fas fa-angle-left" onclick="prev()"></div>
-                        <div class="fas fa-angle-right" onclick="next()"></div>
-                    </div>
-                </div>
-
-                <div class="slide">
-                    <div class="image">
-                        <img src="./images/home-img-2.png" alt="">
-                    </div>
-                    <div class="content">
-                        <h3>Pizza With Mushrooms</h3>
-                        <div class="fas fa-angle-left" onclick="prev()"></div>
-                        <div class="fas fa-angle-right" onclick="next()"></div>
-                    </div>
-                </div>
-
-                <div class="slide">
-                    <div class="image">
-                        <img src="./images/home-img-3.png" alt="">
-                    </div>
-                    <div class="content">
-                        <h3>Mascarpone And Mushrooms</h3>
-                        <div class="fas fa-angle-left" onclick="prev()"></div>
-                        <div class="fas fa-angle-right" onclick="next()"></div>
-                    </div>
-                </div>
-
-            </div>
-
-        </section>
-
-    </div>
-    <!--home section ends-->
-
-    <!-- about section starts  -->
-    <section class="about" id="about">
-
-        <h1 class="heading"><span>ABOUT</span>us</h1>
-
-        <div class="box-container">
-
-            <div class="box">
-                <img src="./images/about11.png" alt="">
-                <h3>made with love</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum quae amet beatae magni numquam facere sit. Tempora vel laboriosam repudiandae!</p>
-                <a href="#menu" class="btn">our menu</a>
-            </div>
-
-            <div class="box">
-                <img src="./images/about22.jfif" alt="">
-                <h3>30 minutes delivery</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum quae amet beatae magni numquam facere sit. Tempora vel laboriosam repudiandae!</p>
-                <a href="#menu" class="btn">our menu</a>
-            </div>
-
-            <div class="box">
-                <img src="./images/about33.jfif" alt="">
-                <h3>share with freinds</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum quae amet beatae magni numquam facere sit. Tempora vel laboriosam repudiandae!</p>
-                <a href="#menu" class="btn">our menu</a>
-            </div>
-
-        </div>
-
-    </section>
-    <!-- about section ends -->
-
-
+   
     <!-- menu section starts  -->
+    <h2 style="
+    height: 90px;"></h3>
+    
     <section id="menu" class="menu">
-
-        <div class="contai">
-            <div class="icons">
-                <i class="fa-solid fa-pizza-slice"></i>
-                <div class="content">
-                    <h3>Pizza</h3>
-                </div>
-            </div>
-
-            <div class="icons">
-                <i class="fas fa-hamburger"></i>
-                <div class="content">
-                    <h3>Burger</h3>
-                </div>
-            </div>
-
-            <div class="icons">
-                <i class="fas fa-drumstick-bite"></i>
-                <div class="content">
-                    <h3>Chicken</h3>
-                </div>
-            </div>
-
-            <div class="icons">
-                <i class="fas fa-glass-cheers"></i>
-                <div class="content">
-                    <h3>Beverage</h3>
-                </div>
-            </div>
-        </div>
-
-        <h1 class="heading">our <span>PIZZAS</span></h1>
-
         <div class="box-container">
             <div class="box">
                 <div class="price">$<span>17</span>/-</div>
@@ -408,7 +257,7 @@
                 <img src="./images/pizza-1.jpg" alt="">
                 <div class="name">pizza 1</div>
                 <form action="" method="post">
-                    <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+                   
                     <select name="size" id="size">
                         <option value="nho">Lớn</option>
                         <option value="vua">Nhỏ</option>
@@ -431,7 +280,7 @@
                 <img src="./images/pizza-2.jpg" alt="">
                 <div class="name">pizza 2</div>
                 <form action="" method="post">
-                    <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+                   
                     <select name="size" id="size">
                         <option value="nho">Lớn</option>
                         <option value="vua">Nhỏ</option>
@@ -454,7 +303,7 @@
                 <img src="./images/pizza-3.jpg" alt="">
                 <div class="name">pizza 3</div>
                 <form action="" method="post">
-                    <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+                   
                     <select name="size" id="size">
                         <option value="nho">Lớn</option>
                         <option value="vua">Nhỏ</option>
@@ -477,7 +326,7 @@
                 <img src="./images/pizza-4.jpg" alt="">
                 <div class="name">pizza 4</div>
                 <form action="" method="post">
-                    <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+                   
                     <select name="size" id="size">
                         <option value="nho">Lớn</option>
                         <option value="vua">Nhỏ</option>
@@ -501,7 +350,7 @@
                 <img src="./images/pizza-5.jpg" alt="">
                 <div class="name">pizza 5</div>
                 <form action="" method="post">
-                    <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+                   
                     <select name="size" id="size">
                         <option value="nho">Lớn</option>
                         <option value="vua">Nhỏ</option>
@@ -524,7 +373,7 @@
                 <img src="./images/pizza-6.jpg" alt="">
                 <div class="name">pizza 6</div>
                 <form action="" method="post">
-                    <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+                   
                     <select name="size" id="size">
                         <option value="nho">Lớn</option>
                         <option value="vua">Nhỏ</option>
@@ -547,7 +396,7 @@
                 <img src="./images/pizza-7.jpg" alt="">
                 <div class="name">pizza 7</div>
                 <form action="" method="post">
-                    <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+                   
                     <select name="size" id="size">
                         <option value="nho">Lớn</option>
                         <option value="vua">Nhỏ</option>
@@ -570,7 +419,7 @@
                 <img src="./images/pizza-8.jpg" alt="">
                 <div class="name">pizza 8</div>
                 <form action="" method="post">
-                    <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+                   
                     <select name="size" id="size">
                         <option value="nho">Lớn</option>
                         <option value="vua">Nhỏ</option>
@@ -593,7 +442,7 @@
                 <img src="./images/pizza-9.jpg" alt="">
                 <div class="name">pizza 9</div>
                 <form action="" method="post">
-                    <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+                   
                     <select name="size" id="size">
                         <option value="nho">Lớn</option>
                         <option value="vua">Nhỏ</option>
@@ -609,7 +458,7 @@
             </div>
         </div>
 
-        <h1 class="heading">our <span>HAMBERGERS</span></h1>
+        
 
         <div class="box-container">
             <div class="box">
@@ -620,7 +469,7 @@
                 <img src="./images/burgerbotamphomai.jpg" alt="">
                 <div class="name">Burger bò tắm phô mai</div>
                 <form action="" method="post">
-                    <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+                   
                     <input type="submit" value="add to cart" name="add_to_cart" class="btn">
                 </form>
             </div>
@@ -633,7 +482,7 @@
                 <img src="./images/burgerbonuongwhopper.jpg" alt="">
                 <div class="name">Burger bò nướng Whopper</div>
                 <form action="" method="post">
-                    <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+                   
                     <input type="submit" value="add to cart" name="add_to_cart" class="btn">
                 </form>
             </div>
@@ -646,7 +495,7 @@
                 <img src="./images/burgerthitheoxongkhoi.jpg" alt="">
                 <div class="name">Burger thịt heo xông khói</div>
                 <form action="" method="post">
-                    <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+                   
                     <input type="submit" value="add to cart" name="add_to_cart" class="btn">
                 </form>
             </div>
@@ -659,7 +508,7 @@
                 <img src="./images/burgerca.jpg" alt="">
                 <div class="name">Burger cá</div>
                 <form action="" method="post">
-                    <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+                   
                     <input type="submit" value="add to cart" name="add_to_cart" class="btn">
                 </form>
             </div>
@@ -672,7 +521,7 @@
                 <img src="./images/burgergabbq.jpg" alt="">
                 <div class="name">Burger gà sốt BBQ</div>
                 <form action="" method="post">
-                    <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+                   
                     <input type="submit" value="add to cart" name="add_to_cart" class="btn">
                 </form>
             </div>
@@ -685,7 +534,7 @@
                 <img src="./images/burgerganuong.jpg" alt="">
                 <div class="name">Burger gà nướng</div>
                 <form action="" method="post">
-                    <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+                   
                     <input type="submit" value="add to cart" name="add_to_cart" class="btn">
                 </form>
             </div>
@@ -698,13 +547,13 @@
                 <img src="./images/burgergagioncay.jpg" alt="">
                 <div class="name">Burger gà giòn cay</div>
                 <form action="" method="post">
-                    <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+                   
                     <input type="submit" value="add to cart" name="add_to_cart" class="btn">
                 </form>
             </div>
         </div>
 
-        <h1 class="heading">our <span>CHICKENS</span></h1>
+        
 
         <div class="box-container">
             <div class="box">
@@ -715,7 +564,7 @@
                 <img src="./images/canhga.jpg" alt="">
                 <div class="name">Cánh gà</div>
                 <form action="" method="post">
-                    <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+                   
                     <select name="size" id="size">
                         <option value="com">Cơm</option>
                         <option value="xoi">Xôi</option>
@@ -738,7 +587,7 @@
                 <img src="./images/gamieng.jpg" alt="">
                 <div class="name">Gà miếng</div>
                 <form action="" method="post">
-                    <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+                   
                     <select name="size" id="size">
                         <option value="com">Cơm</option>
                         <option value="xoi">Xôi</option>
@@ -761,7 +610,7 @@
                 <img src="./images/phile.jpg" alt="">
                 <div class="name">Phi-lê gà quay</div>
                 <form action="" method="post">
-                    <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+                   
                     <select name="size" id="size">
                         <option value="com">Cơm</option>
                         <option value="xoi">Xôi</option>
@@ -783,7 +632,7 @@
                 <img src="./images/gavien.jpg" alt="">
                 <div class="name">Gà viên</div>
                 <form action="" method="post">
-                    <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+                   
                     <select name="size" id="size">
                         <option value="nho">Lớn</option>
                         <option value="lon">Vừa</option>
@@ -798,7 +647,7 @@
             </div>
         </div>
 
-        <h1 class="heading">our <span>OTHERS</span></h1>
+        
 
         <div class="box-container">
             <div class="box">
@@ -809,7 +658,7 @@
                 <img src="./images/pepsi.jpg" alt="">
                 <div class="name">Pepsi</div>
                 <form action="" method="post">
-                    <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+                   
                     <select name="size" id="size">
                         <option value="nho">Lớn</option>
                         <option value="lon">Vừa</option>
@@ -831,7 +680,7 @@
                 <img src="./images/kem.jfif" alt="">
                 <div class="name">Kem</div>
                 <form action="" method="post">
-                    <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+                   
                     <select name="size" id="size">
                         <option value="ly">Ly</option>
                         <option value="coc">Cốc</option>
@@ -854,7 +703,7 @@
                 <img src="./images/tra.jfif" alt="">
                 <div class="name">Trà</div>
                 <form action="" method="post">
-                    <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+                   
                     <select name="size" id="size">
                         <option value="nho">Lớn</option>
                         <option value="lon">Vừa</option>
@@ -872,121 +721,12 @@
     </section>
     <!-- menu section ends -->
 
-    <!-- order section starts  -->
-
-    <section class="order" id="order">
-
-        <h1 class="heading"><span>ORDER</span>now</h1>
-
-        <form action="">
-            <div class="inputBox">
-                <div class="input">
-                    <span>Your name</span>
-                    <input type="text" placeholder="enter your name">
-                </div>
-                <div class="input">
-                    <span>Your number</span>
-                    <input type="text" placeholder="enter your number">
-                </div>
-            </div>
-
-            <div class="inputBox">
-                <div class="input">
-                    <span>Your order</span>
-                    <input type="text" placeholder="enter food name">
-                </div>
-
-                <div class="input">
-                    <span>How much</span>
-                    <input type="number" min="1" max="100" value="1" placeholder="how many order">
-                </div>
-            </div>
-
-            <div class="inputBox">
-                <div class="input">
-                    <span>Date and time</span>
-                    <input type="datetime-local">
-                </div>
-
-                <div class="input">
-                    <span>Phương thức thanh toán</span>
-                    <select name="thanhtoan" id="Thanh toán">
-                        <option value="tienmat">Tiền mặt</option>
-                        <option value="momo">MoMo</option>
-                        <option value="zalopay">ZaloPay</option>
-                        <option value="the">Thẻ tín dụng</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="inputBox">
-                <div class="input">
-                    <span>Your address</span>
-                    <textarea name="" placeholder="enter your address" id="" col="30" rows="10"></textarea>
-                </div>
-
-                <div class="input">
-                    <span>Your message</span>
-                    <textarea name="" placeholder="enter your message" id="" col="30" rows="10"></textarea>
-                </div>
-            </div>
-
-            <input type="submit" value="order now" class="btn">
-        </form>
-
-    </section>
 
     <!-- order section ends -->
 
     <!-- footer section starts  -->
 
-    <section class="footer">
-        <div class="box-container">
-            <div class="box">
-                <div class="logoimg">
-                    <img src="./images/pizza.png" alt>
-                    <h3 href="#home" class="logo">Fast Fun</h3>
-                </div>
-                <p>Cảm ơn quý khách đã lựa chọn Fast Fun là nơi ăn uống theo dõi các trang mạng xã hội để biết thêm nhiều khuyến mãi trong tương lai</p>
-                <div class="share">
-                    <a href="#" class="fab fa-facebook-f"></a>
-                    <a href="#" class="fab fa-instagram"></a>
-                    <a href="#" class="fab fa-twitter"></a>
-                </div>
-            </div>
-
-            <div class="box">
-                <h3>contact info</h3>
-                <a href="#" class="links"><i class="fas fa-phone"></i>0708176957</a>
-                <a href="#" class="links"><i class="fas fa-envelope"></i>sanvo1120@gmail.com</a>
-                <a href="#" class="links"><i class="fas fa-map-marked-alt"></i>1/43 đường 53 HBC TPTĐ</a>
-                <a href="#" class="links"><i class="fas fa-grin-stars"></i>Bí quyết ăn ngon</a>
-            </div>
-
-            <div class="box">
-                <h3>quick links</h3>
-                <a href="#" class="links"><i class="fas fa-arrow-right"></i>Home</a>
-                <a href="#" class="links"><i class="fas fa-arrow-right"></i>Menu</a>
-                <a href="#" class="links"><i class="fas fa-arrow-right"></i>About</a>
-                <a href="#" class="links"><i class="fas fa-arrow-right"></i>Order</a>
-                <a href="#" class="links"><i class="fas fa-arrow-right"></i>Khuyến mãi</a>
-            </div>
-
-            <div class="box">
-                <h3>newsletter</h3>
-                <p>subscribe for lastest updates</p>
-                <input type="email" placeholder="your email" class="email">
-                <input type="submit" value="subscribe" class="btn">
-                <div class="shares">
-                    <a href="#" class="fab fa-amazon-pay"></a>
-                    <a href="#" class="fab fa-cc-visa"></a>
-                    <a href="#" class="fab fa-paypal"></a>
-                    <a href="#" class="fab fa-bitcoin"></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
+   
     <!-- footer section ends -->
 
 

@@ -10,7 +10,7 @@
     --outline-hover: .2rem solid var(--black);
     --light-bg: #f5f5f5;
     --border: .1rem solid var(--light-color);
-    --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .5);
     --white: #fff;
 }
 
@@ -455,6 +455,7 @@ section {
     line-height: 50px;
     display: flex;
     text-shadow: 0 0 6px #000;
+    
 }
 
 .heart .box .small_card i:hover {
@@ -470,7 +471,7 @@ section {
 .h-scrollbar {
     overflow-x: scroll;
     width: 400px;
-    height: 430px;
+    height: 470px;
 }
 
 .shopping-cart {
@@ -479,8 +480,9 @@ section {
     right: 0%;
     width: 42rem;
     z-index: 1100;
-    background-color: var(--light-bg);
-    height: 100vh;
+    background-color: #ff866a;
+    height: 720.39px;
+    border: var(--border);
 }
 
 .shopping-cart .title {
@@ -579,10 +581,13 @@ section {
 
 .pl-3,
 .px-3 {
-    padding-top: 3rem;
+    padding-top: 1rem;
     padding-left: 2rem !important;
     padding-right: 2rem !important;
     font-size: 1.5rem;
+    background: #ffffffc4;
+    padding-bottom: 0.5rem;
+    border-radius: 5px;
 }
 
 .mb-2,
@@ -631,6 +636,8 @@ p {
 
 .w-100 {
     width: 100% !important;
+    
+    background: black;
 }
 
 
@@ -773,10 +780,12 @@ p {
 
 .menu .box-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 35rem);
+    grid-template-columns: repeat(auto-fit, 25rem);
     gap: 1.5rem;
     align-items: flex-start;
     justify-content: center;
+    margin-right: 42rem;
+    margin-bottom: 15px;
 }
 
 .menu .box-container .box {
@@ -786,6 +795,7 @@ p {
     text-align: center;
     box-shadow: var(--box-shadow);
     position: relative;
+    width: 250px;
 }
 
 .menu .box-container .box img {
@@ -797,7 +807,7 @@ p {
     background-color: var(--black);
     border-radius: .5rem;
     padding: .5rem 1rem;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     color: var(--white);
     position: absolute;
     top: 1rem;
@@ -805,7 +815,7 @@ p {
 }
 
 .menu .box-container .box .price span {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
 }
 
 .menu .box-container .box .name {
@@ -815,7 +825,7 @@ p {
 }
 
 .menu .box-container .box form {
-    display: flex;
+    display: flow-root;
     gap: 1rem;
 }
 
@@ -830,12 +840,13 @@ p {
 }
 
 .menu .box-container .box select {
-    width: 12rem;
+    width: 210px;
+    height: 40;
     border: var(--border);
     padding: 1rem;
     margin-top: 1rem;
     border-radius: .5rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: var(--black);
 }
 
@@ -843,7 +854,7 @@ p {
     background-color: var(--black);
     border-radius: .5rem;
     padding: .5rem 1rem;
-    font-size: 3.3rem;
+    font-size: 2.3rem;
     color: var(--white);
     position: absolute;
     top: 1rem;
