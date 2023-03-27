@@ -14,26 +14,18 @@ document.querySelector('#user-btn').onclick = () => {
 let myOrders = document.querySelector('.my-orders');
 
 document.querySelector('#order-btn').onclick = () => {
-    myOrders.classList.add('active');
-}
-
-document.querySelector('#close-orders').onclick = () => {
-    myOrders.classList.remove('active');
+    myOrders.classList.toggle('active');
 }
 
 let heartt = document.querySelector('.heart');
 
 document.querySelector('#heart-btn').onclick = () => {
-    heartt.classList.add('active');
-    console.log('aaa');
+    heartt.classList.toggle('active');
 }
 
-document.querySelector('#close-heart').onclick = () => {
-    heartt.classList.remove('active');
-}
 
 window.onscroll = () => {
-    myOrders.classList.remove('active');
+    myOrders.classList.remove('active');    
     cart.classList.remove('active');
     heartt.classList.remove('active');
 };

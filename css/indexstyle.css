@@ -397,7 +397,7 @@ section {
 }
 
 .heart.active {
-    left: 0;
+    right: 0;
 }
 
 .heart #close-heart {
