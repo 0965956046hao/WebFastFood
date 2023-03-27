@@ -1,11 +1,15 @@
 const config = require('../configs/configs');
+var bcrypt = require('bcrypt');
+var jwt = require('jsonwebtoken');
+var mongoose = require('mongoose');
 
 const Schema = config.mongoose.Schema;
 const ObjectId = Schema.ObjectId;
+const saltRound = 10;
 
 const AccountsSchema = new Schema({
-    customId: {type: ObjectId},
-    useName: {
+    customId: [{ type: mongoose.Types.ObjectId, ref: config.customers_collection }],
+    email: {
         type: String,
         unique: true,
         required: true,},
@@ -31,5 +35,29 @@ const AccountsSchema = new Schema({
 },{
     timestamps	:	true
   });
+
+AccountsSchema.pre('save', function (next) {
+    const salt = bcrypt.genSaltSync(saltRound);
+    this.passWord = bcrypt.hashSync(this.password,salt);
+    next();
+})
+AccountsSchema.methods.getSignedJWT=function(){
+    return jwt.sign({id:this._id},config.JWT_SECRET,{expiresIn:config.JWT_EXPIRE});
+}
+AccountsSchema.statics.findByCredentinal = async function(email,passWord){
+    if(!email||!passWord){
+        return {error:"khong de trong email va password"};
+    }
+    let user = await this.findOne({email:email});
+    if(!user){
+        return {error:"email khong ton tai"};
+    }
+    let isMatch = await bcrypt.compare(password,user.password);
+    if(!isMatch){
+       
+        return {error:"passwod sai"};
+    } 
+    return user;
+}
 
 module.exports = config.mongoose.model(config.accounts_collection, AccountsSchema);

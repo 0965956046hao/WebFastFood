@@ -20,5 +20,8 @@ module.exports = {
     foodtypes_collection:'foodtypes',
     pizzatoppings_collection:'pizzatoppings',
     hambergertoppings_collection:'hambergertoppings',
-    cakeborders_collection:'cakeborders'
+    cakeborders_collection:'cakeborders',
+    JWT_SECRET:'123456ehehe',
+    JWT_EXPIRE:'3d',
+    COOKIE_EXPIRE:'30'
 }

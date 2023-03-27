@@ -39,4 +39,12 @@ const CustomersSchema = new Schema({
     timestamps	:	true
   });
 
+CustomersSchema.virtual('account',{
+  ref: config.item_collection,
+  localField: '_id',
+  foreignField: config.customers_collection
+});
+CustomersSchema.set('toObject',{virtuals:true});
+CustomersSchema.set('toJSON',{virtuals:true});
+
 module.exports = config.mongoose.model(config.customers_collection, CustomersSchema);
