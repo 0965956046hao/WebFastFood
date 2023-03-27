@@ -6,40 +6,26 @@ document.querySelector('#search-btn').onclick = () => {
 
 let account = document.querySelector('.user-account');
 
+document.querySelector('#user-btn').onclick = () => {
+    account.classList.add('active');
+}
 
 
 let myOrders = document.querySelector('.my-orders');
 
 document.querySelector('#order-btn').onclick = () => {
-    myOrders.classList.add('active');
-}
-
-document.querySelector('#close-orders').onclick = () => {
-    myOrders.classList.remove('active');
-}
-
-let cart = document.querySelector('.shopping-cart');
-
-document.querySelector('#cart-btn').onclick = () => {
-    cart.classList.add('active');
-}
-
-document.querySelector('#close-cart').onclick = () => {
-    cart.classList.remove('active');
+    myOrders.classList.toggle('active');
 }
 
 let heartt = document.querySelector('.heart');
 
 document.querySelector('#heart-btn').onclick = () => {
-    heartt.classList.add('active');
+    heartt.classList.toggle('active');
 }
 
-document.querySelector('#close-heart').onclick = () => {
-    heartt.classList.remove('active');
-}
 
 window.onscroll = () => {
-    myOrders.classList.remove('active');
+    myOrders.classList.remove('active');    
     cart.classList.remove('active');
     heartt.classList.remove('active');
 };

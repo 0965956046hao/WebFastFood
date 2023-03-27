@@ -51,18 +51,22 @@ body {
 }
 
 section {
-    padding: 3rem;
+    padding: 1.5rem;
     margin: 0;
     max-width: 1700rem;
 }
 
 .heading {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
+    margin-top: 3rem;
     font-size: 4rem;
     color: var(--black);
     text-transform: uppercase;
 }
+
+
+/*btn-start*/
 
 .btn {
     display: block;
@@ -96,6 +100,12 @@ section {
     background: #fff;
     box-shadow: var(--box-shaw);
 }
+
+
+/*btn-end*/
+
+
+/*header-start*/
 
 .header .logoimg {
     align-items: center;
@@ -183,6 +193,12 @@ section {
 .header .search-form label:hover {
     color: var(--orange);
 }
+
+
+/*headr-end*/
+
+
+/*user-start*/
 
 .user-account {
     position: fixed;
@@ -289,6 +305,12 @@ section {
     color: var(--black);
 }
 
+
+/*user-end*/
+
+
+/*myorders-start*/
+
 .my-orders {
     position: fixed;
     top: 0;
@@ -348,6 +370,12 @@ section {
     color: var(--black);
 }
 
+
+/*myorders-end*/
+
+
+/*heart-start*/
+
 .heart {
     position: fixed;
     top: 0;
@@ -358,6 +386,14 @@ section {
     border-left: var(--border);
     height: 100vh;
     overflow-y: scroll;
+}
+
+.heart .title {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--black);
+    font-size: 3rem;
+    text-transform: capitalize;
 }
 
 .heart.active {
@@ -425,16 +461,34 @@ section {
     color: var(--black);
 }
 
+
+/*heart-end*/
+
+
+/*shoppingcart-start*/
+
+.h-scrollbar {
+    overflow-x: scroll;
+    width: 400px;
+    height: 430px;
+}
+
 .shopping-cart {
     position: fixed;
     top: 0;
     right: -110%;
-    width: 35rem;
+    width: 42rem;
     z-index: 1100;
     background-color: var(--light-bg);
     border-left: var(--border);
     height: 100vh;
-    overflow-y: scroll;
+}
+
+.shopping-cart .title {
+    text-align: center;
+    color: var(--black);
+    font-size: 3rem;
+    text-transform: capitalize;
 }
 
 .shopping-cart.active {
@@ -443,7 +497,6 @@ section {
 
 .shopping-cart #close-cart {
     text-align: right;
-    margin-bottom: 2.5rem;
 }
 
 .shopping-cart #close-cart span {
@@ -503,26 +556,86 @@ section {
 
 .shopping-cart .box .content form .qty {
     border: var(--border);
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     padding: 1rem;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: var(--black);
-    width: 8rem;
+    width: 5rem;
 }
 
-.shopping-cart .box .content form .fa-edit {
-    width: 5.5rem;
-    font-size: 1.7rem;
-    cursor: pointer;
-    border-radius: .5rem;
-    background-color: var(--light-bg);
+.shopping-cart .box .content select {
+    border: var(--border);
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
     color: var(--black);
 }
 
-.shopping-cart .box .content form .fa-edit:hover {
-    background-color: var(--black);
-    color: var(--white);
+.shopping-cart .box .content .prices {
+    font-size: 1.5rem;
+    color: var(--black);
+    justify-content: space-between !important;
+    display: flex !important;
+    margin-top: 0.5rem;
 }
+
+.pl-3,
+.px-3 {
+    padding-top: 3rem;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+    font-size: 1.5rem;
+}
+
+.mb-2,
+.my-2 {
+    margin-bottom: 0.5rem !important;
+}
+
+.mb-1,
+.my-1 {
+    margin-bottom: 0.25rem !important;
+}
+
+.col-8 {
+    flex: 0 0 66.66667%;
+    max-width: 66.66667%;
+}
+
+.text-secondary {
+    color: #6c757d !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.col-4 {
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.text-danger {
+    color: var(--orange) !important;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+
+/*shoppingcart-end*/
 
 @keyframes fadeLeft {
     0% {
@@ -535,6 +648,9 @@ section {
         transform: translateX(-5rem);
     }
 }
+
+
+/*homebg-start*/
 
 .home-bg {
     background: url(../images/home.jpg) no-repeat;
@@ -601,6 +717,12 @@ section {
     color: var(--white);
 }
 
+
+/*homebg-end*/
+
+
+/*about-start*/
+
 .about h1 span {
     color: var(--orange);
     margin-right: 10px;
@@ -638,6 +760,12 @@ section {
     font-size: 1.6rem;
     color: var(--light-color);
 }
+
+
+/*about-end*/
+
+
+/*menu-start*/
 
 .menu h1 span {
     color: var(--orange);
@@ -734,18 +862,20 @@ section {
     color: var(--orange);
 }
 
+
+/*menu-end*/
+
+
+/*contai-start*/
+
 .contai {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     gap: 3rem;
     background: var(--orange);
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-    margin-left: 20px;
-    margin-right: 20px;
-    border-radius: 0.5rem;
+    border-radius: 1.5rem;
 }
 
 .menu .contai .icons {
@@ -753,9 +883,9 @@ section {
     align-items: center;
     gap: 1.5rem;
     box-shadow: var(--black);
-    border-radius: 3.5rem;
+    border-radius: 1.5rem;
     background: #fff;
-    width: 200px;
+    width:300px;
 }
 
 .menu .contai .icons i {
@@ -763,7 +893,7 @@ section {
     width: 6.5rem;
     line-height: 6.5rem;
     font-size: 2.5rem;
-    border-radius: 50%;
+    border-radius: 1.3rem;
     color: var(--black);
     text-align: center;
 }
@@ -777,12 +907,18 @@ section {
 }
 
 .menu .contai .icons:hover i {
-    background: var(--orange);
+    background: var(--light-bg);
 }
 
 .menu .contai .icons:hover .content {
     color: var(--orange);
 }
+
+
+/*contai-end*/
+
+
+/*order-start*/
 
 .order h1 span {
     color: var(--orange);
@@ -841,6 +977,12 @@ section {
     font-size: 1.5rem;
     color: var(--black);
 }
+
+
+/*order-end*/
+
+
+/*footer-start*/
 
 .footer {
     background: #fff;
@@ -950,6 +1092,9 @@ section {
 }
 
 
+/*footer-end*/
+
+
 /* media queries  */
 
 @media (max-width:991px) {
@@ -1006,3 +1151,6 @@ section {
         grid-template-columns: 1fr;
     }
 }
+
+
+/* media queries  */
