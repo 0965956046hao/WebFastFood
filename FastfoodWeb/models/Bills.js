@@ -1,6 +1,6 @@
-const mongoose = require('../configs/configs');
+const config = require('../configs/configs');
 
-const Schema = mongoose.Schema;
+const Schema = config.mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
 const BillsSchema = new Schema({
@@ -24,4 +24,4 @@ const BillsSchema = new Schema({
         required: true,}
 });
 
-module.exports = mongoose.model('Bills', BillsSchema);
+module.exports = config.mongoose.model('Bills', BillsSchema);

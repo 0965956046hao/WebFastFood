@@ -1,6 +1,6 @@
-const mongoose = require('../config/configs');
+const config = require('../configs/configs');
 
-const Schema = mongoose.Schema;
+const Schema = config.mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
 const SoleTypesSchema = new Schema({
@@ -18,4 +18,4 @@ const SoleTypesSchema = new Schema({
         required: true,},       
 });
 
-module.exports = mongoose.model('SoleTypes', SoleTypesSchema);
+module.exports = config.mongoose.model('SoleTypes', SoleTypesSchema);

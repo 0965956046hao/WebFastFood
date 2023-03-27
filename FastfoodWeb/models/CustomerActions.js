@@ -1,6 +1,6 @@
-const mongoose = require('../configs/configs');
+const config = require('../configs/configs');
 
-const Schema = mongoose.Schema;
+const Schema = config.mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
 const CustomerActionsSchema = new Schema({
@@ -12,4 +12,4 @@ const CustomerActionsSchema = new Schema({
         required: true,},
 });
 
-module.exports = mongoose.model('CustomersActions', CustomerActionsSchema);
+module.exports = config.mongoose.model('CustomersActions', CustomerActionsSchema);

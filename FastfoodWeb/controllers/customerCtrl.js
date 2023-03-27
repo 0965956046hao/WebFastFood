@@ -1,4 +1,11 @@
 var itemSchma = require('../models/Customers');
+var itemSchma1 = require('../models/Pizzas');
+var itemSchma2 = require('../models/Hambergers');
+var itemSchma3 = require('../models/SingleFoods');
+var itemSchma4 = require('../models/FoodType');
+var itemSchma5 = require('../models/HambergerToppings');
+var itemSchma6 = require('../models/PizzaToppings');
+var itemSchma7 = require('../models/CakeBorder');
 
 module.exports = {
 

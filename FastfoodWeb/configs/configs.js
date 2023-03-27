@@ -10,4 +10,15 @@ mongoose.connect(url , {useNewUrlParser: true, useUnifiedTopology: true})
     //console.log(err);
 });
 
-module.exports = mongoose;
+module.exports = {
+    mongoose: mongoose,
+    pizzas_collection:'pizzas',
+    hambergers_collection:'hambergers',
+    singlefoods_collection:'singlefoods',
+    accounts_collection:'accounts',
+    customers_collection:'customers',
+    foodtypes_collection:'foodtypes',
+    pizzatoppings_collection:'pizzatoppings',
+    hambergertoppings_collection:'hambergertoppings',
+    cakeborders_collection:'cakeborders'
+}

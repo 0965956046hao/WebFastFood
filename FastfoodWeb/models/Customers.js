@@ -1,6 +1,6 @@
-const mongoose = require('../configs/configs');
+const config = require('../configs/configs');
 
-const Schema = mongoose.Schema;
+const Schema = config.mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
 const CustomersSchema = new Schema({
@@ -39,4 +39,4 @@ const CustomersSchema = new Schema({
     timestamps	:	true
   });
 
-module.exports = mongoose.model('Customers', CustomersSchema);
+module.exports = config.mongoose.model(config.customers_collection, CustomersSchema);

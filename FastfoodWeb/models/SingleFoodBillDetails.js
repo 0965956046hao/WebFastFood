@@ -1,6 +1,6 @@
-const mongoose = require('../config/configs');
+const config = require('../configs/configs');
 
-const Schema = mongoose.Schema;
+const Schema = config.mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
 const SingleFoodBillsDetailsSchema = new Schema({
@@ -20,4 +20,4 @@ const SingleFoodBillsDetailsSchema = new Schema({
         required: true,},
 });
 
-module.exports = mongoose.model('SingleFoodBillsDetails', SingleFoodBillsDetailsSchema);
+module.exports = config.mongoose.model('SingleFoodBillsDetails', SingleFoodBillsDetailsSchema);

@@ -1,6 +1,7 @@
-const mongoose = require('../configs/configs');
+const config = require('../configs/configs');
+var mongoose = require('mongoose');
 
-const Schema = mongoose.Schema;
+const Schema = config.mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
 const HambergersSchema = new Schema({
@@ -21,7 +22,19 @@ const HambergersSchema = new Schema({
         required: true,},
     img: {
         type: String,
-        required: true,},   
-});
+        required: true,},
+   modified:{
+        modified_by_user_name	:	'string',
+        modified_by_user_id	:	[{ type: mongoose.Types.ObjectId, ref: config.accounts_collection }],
+    },
+    created	:{
+        created_by_user_name	:	'string',
+        created_by_user_id	:	[{ type: mongoose.Types.ObjectId, ref: config.accounts_collection }],
+    },
+    status	:	'string',
+    orderring	:	'string'
+  },{
+    timestamps	:	true
+  });
 
-module.exports = mongoose.model('Hambergers', HambergersSchema);
+module.exports = config.mongoose.model(config.hambergers_collection, HambergersSchema);

@@ -1,6 +1,6 @@
-const mongoose = require('../configs/configs');
+const config = require('../configs/configs');
 
-const Schema = mongoose.Schema;
+const Schema = config.mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
 const AccountsSchema = new Schema({
@@ -15,6 +15,7 @@ const AccountsSchema = new Schema({
     dateCreate: {
         type: Date,
         required: true,},
+    role: String,
     modified:{
         
         modified_by_user_name	:	'string',
@@ -31,4 +32,4 @@ const AccountsSchema = new Schema({
     timestamps	:	true
   });
 
-module.exports = mongoose.model('Accounts', AccountsSchema);
+module.exports = config.mongoose.model(config.accounts_collection, AccountsSchema);

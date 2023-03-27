@@ -1,6 +1,6 @@
-const mongoose = require('../configs/configs');
+const config = require('../configs/configs');
 
-const Schema = mongoose.Schema;
+const Schema = config.mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
 const cakeBordersSchema = new Schema({
@@ -12,7 +12,20 @@ const cakeBordersSchema = new Schema({
         required: true,},
     describe: {
         type: String,
-        required: true,}
-});
+        required: true,},
+    modified:{
+        modified_by_user_name	:	'string',
+        modified_by_user_id	:	[{ type: config.mongoose.Types.ObjectId, ref: config.accounts_collection }],
+    },
+    created	:{
+        created_by_user_name	:	'string',
+        created_by_user_id	:	[{ type: config.mongoose.Types.ObjectId, ref: config.accounts_collection }],
+    },
+    status	:	'string',
+    orderring	:	'string'
+  },{
+    timestamps	:	true
+  });
 
-module.exports = mongoose.model('CakeBorders', cakeBordersSchema);
+
+module.exports = config.mongoose.model(config.cakeborders_collection, cakeBordersSchema);
