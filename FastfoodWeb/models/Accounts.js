@@ -8,7 +8,7 @@ const ObjectId = Schema.ObjectId;
 const saltRound = 10;
 
 const AccountsSchema = new Schema({
-    customId: [{ type: mongoose.Types.ObjectId, ref: config.customers_collection }],
+    customId: { type: mongoose.Types.ObjectId, ref: config.customers_collection },
     email: {
         type: String,
         unique: true,
@@ -38,7 +38,7 @@ const AccountsSchema = new Schema({
 
 AccountsSchema.pre('save', function (next) {
     const salt = bcrypt.genSaltSync(saltRound);
-    this.passWord = bcrypt.hashSync(this.password,salt);
+    this.passWord = bcrypt.hashSync(this.passWord,salt);
     next();
 })
 AccountsSchema.methods.getSignedJWT=function(){
@@ -52,7 +52,7 @@ AccountsSchema.statics.findByCredentinal = async function(email,passWord){
     if(!user){
         return {error:"email khong ton tai"};
     }
-    let isMatch = await bcrypt.compare(password,user.password);
+    let isMatch = await bcrypt.compare(passWord,user.passWord);
     if(!isMatch){
        
         return {error:"passwod sai"};

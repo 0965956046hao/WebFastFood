@@ -1,7 +1,6 @@
 
 const Accounts = require('../controllers/accountCtrl');
 const Customers = require('../controllers/customerCtrl');
-const AccountsSchema = require('../models/Accounts');
 const mongoose = require('mongoose');
 
 module.exports ={
@@ -12,7 +11,6 @@ module.exports ={
                             "fullName"	:	item.name,
                             "local"	:	item.address,
                             "sDT"	:	item.phone,
-                            "birth"	:	item.birth + "T13:33:03.969Z",
                             "modified":{
                                 "modified_by_user_name"	:	item.name,
                                 "modified_by_user_id"	:	id
@@ -26,9 +24,9 @@ module.exports ={
                         };
         
         var paramsAcc = {
-                            "customId"	:	paramsCus._id,
-                            "email"	:	req.body.email,
-                            "passWord"	:	req.body.pass,
+                            "customId"	:	id,
+                            "email"	:	item.email,
+                            "passWord"	:	item.password,
                             "dateCreate"	:	new Date().toISOString(),
                             "rode": "user",
                             "modified":{
@@ -41,22 +39,25 @@ module.exports ={
                             },
                             "status"	:	"1",
                             "orderring"	:	"1"
-                        };  
-        let user = await Accounts.findOne({email:item.email});
+                        }; 
+        console.log(paramsAcc)
+                        
+        let user = await Accounts.schema.findOne({email:item.email});
+        console.log(user);
         if(user){
         throw new Error('Email đã tồn tại');
         }
         else{
-            let newCus = await new Customers(paramsCus).save();
-            let newAcc = await new Accounts(paramsAcc).save();
-            
-            return await newItem.getSignedJWT();
+            let newCus = await new Customers.schema(paramsCus).save();
+            let newAcc = await new Accounts.schema(paramsAcc).save();
+            return await newAcc.getSignedJWT();
         }
-        
     },
     Login:async (item)=>{
         const {email,password} = item;
-        const result = await AccountsSchema.findByCredentinal(email,password);
+        console.log(email)
+        console.log(password)
+        const result = await Accounts.schema.findByCredentinal(email,password);
         if(result.error){
             return result;
         }

@@ -24,10 +24,10 @@ router.post('/register',validator.ValidationRule(),validator.Validate ,async fun
   console.log(req.body);
   try {
     var token = await accountsControleer.Register(req.body);
-    handleResult.ShowResult(res,200,true,token);
+    handleResult.returnResult(res,200,true,token);
   } catch (error) {
     console.log(error.message);
-    handleResult.ShowResult(res,400,false,error.message);
+    handleResult.returnResult(res,400,false,error.message);
   }
 });
 router.post('/login',async function(req, res, next) {
@@ -36,10 +36,10 @@ router.post('/login',async function(req, res, next) {
     if(!result.error){
       saveCookieResponse(res,200,result);
     }else{
-      handleResult.ShowResult(res,400,false,result);
+      handleResult.returnResult(res,400,false,result);
     }
   } catch (error) {
-    handleResult.ShowResult(res,400,false,error);
+    handleResult.returnResult(res,400,false,error);
   }
 });
 router.get('/logout',async function(req, res, next) {
@@ -53,7 +53,7 @@ router.get('/logout',async function(req, res, next) {
       data:{}
     })
   } catch (error) {
-    handleResult.ShowResult(res,400,false,error);
+    handleResult.returnResult(res,400,false,error);
   }
 });
 
