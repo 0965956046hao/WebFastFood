@@ -17,6 +17,13 @@ var hambergerstoppingsRouter = require('./routes/hambergertoppings');
 var pizzasRouter = require('./routes/pizzas');
 var pizzastoppingsRouter = require('./routes/pizzatoppings');
 var singlefoodsRouter = require('./routes/singlefoods');
+var billsRouter = require('./routes/bills');
+var customerActionsRouter = require('./routes/customerActions');
+var customerAuditingRouter = require('./routes/customerAuditing');
+var hambergerBillsDetailsRouter = require('./routes/hambergerBillsDetails');
+var pizzaBillsDetailsRouter = require('./routes/pizzaBillsDetails');
+var singleFoodBillDetailsRouter = require('./routes/singleFoodBillDetails');
+var soleTypesRouter = require('./routes/soleTypes');
 
 var app = express();
 
@@ -42,6 +49,13 @@ app.use('/hambergertoppings', hambergerstoppingsRouter);
 app.use('/pizzas', pizzasRouter);
 app.use('/pizzatoppings', pizzastoppingsRouter);
 app.use('/singlefoods', singlefoodsRouter);
+app.use('/bills', billsRouter);
+app.use('/customerActions', customerActionsRouter);
+app.use('/customerAuditing', customerAuditingRouter);
+app.use('/hambergerBillsDetails', hambergerBillsDetailsRouter);
+app.use('/pizzaBillsDetails', pizzaBillsDetailsRouter);
+app.use('/singleFoodBillDetails', singleFoodBillDetailsRouter);
+app.use('/soleTypes', soleTypesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
