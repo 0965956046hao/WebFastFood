@@ -30,6 +30,7 @@ router.post('/register',validator.ValidationRule(),validator.Validate ,async fun
     handleResult.returnResult(res,400,false,error.message);
   }
 });
+
 router.post('/login',async function(req, res, next) {
   try {
     var result = await accountsControleer.Login(req.body);
@@ -42,6 +43,15 @@ router.post('/login',async function(req, res, next) {
     handleResult.returnResult(res,400,false,error);
   }
 });
+
+router.get('/me',protectMiddleware.protect,async function(req, res, next) {
+  try {
+    handleResult.returnResult(res,200,false,req.user);
+  } catch (error) {
+    handleResult.returnResult(res,400,false,error);
+  }
+});
+
 router.get('/logout',async function(req, res, next) {
   try {
     const option = {

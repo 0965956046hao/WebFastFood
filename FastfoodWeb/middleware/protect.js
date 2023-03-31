@@ -14,14 +14,15 @@ module.exports = {
         else if (req.cookies.token){
             token = req.cookies.token;
         }
-        if (!token) return handleResult.ShowResult(res, 200, false, "vui long dang nhap");
+        if (!token) return handleResult.returnResult(res, 200, false, "vui long dang nhap");
 
         try {
-            const decode = jwt.verify(token, config.JWT_SECRET);
-            req.user = await accModel.getItemById(decode.id);
+            const decode = await jwt.verify(token, config.JWT_SECRET);
+            req.user = await accModel.GetItemById(decode.id);
+            await console.log(req.user);
             next();
         } catch (error) {
-            return handleResult.ShowResult(res, 200, false, "vui long dang nhap");
+            return handleResult.returnResult(res, 200, false, "vui long dang nhap");
         }
     },
     authorize: (...roles) => {
@@ -29,7 +30,7 @@ module.exports = {
             console.log(roles);
             console.log(req.user.role);
             if(!roles.includes(req.user.role)){
-                return handleResult.ShowResult(res, 200, false, "ban khong co quyen");
+                return handleResult.returnResult(res, 200, false, "ban khong co quyen");
             }
             next();
         }

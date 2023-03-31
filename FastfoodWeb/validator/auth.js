@@ -13,7 +13,6 @@ var optionStrongPassword = {
 }
 
 const ValidationRule = () => {
-    console.log(a)
     return [
         body('email').isEmail().withMessage(msg.MSG_EMAIL),
         check('password').isStrongPassword(optionStrongPassword).withMessage(util.format(msg.MSG_PASSWORD,optionStrongPassword.minLength,optionStrongPassword.minLowercase,optionStrongPassword.minNumbers)),
