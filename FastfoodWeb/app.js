@@ -8,8 +8,15 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var authRouter = require('./routes/auth');
 var orderRouter = require('./routes/order');
-var customerssRouter = require('./routes/customerCtrl');
-var accountsRouter = require('./routes/accountCtrl');
+var customerssRouter = require('./routes/customers');
+var accountsRouter = require('./routes/accounts');
+var cakeborderRouter = require('./routes/cakeborder');
+var foodtypeRouter = require('./routes/foodtype');
+var hambergersRouter = require('./routes/hambergers');
+var hambergerstoppingsRouter = require('./routes/hambergertoppings');
+var pizzasRouter = require('./routes/pizzas');
+var pizzastoppingsRouter = require('./routes/pizzatoppings');
+var singlefoodsRouter = require('./routes/singlefoods');
 
 var app = express();
 
@@ -26,8 +33,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/home', indexRouter);
 app.use('/auth', authRouter);
 app.use('/order', orderRouter);
-app.use('/customer', customerssRouter);
-app.use('/account', accountsRouter);
+app.use('/customers', customerssRouter);
+app.use('/accounts', accountsRouter);
+app.use('/cakeborder', cakeborderRouter);
+app.use('/foodtype', foodtypeRouter);
+app.use('/hambergers', hambergersRouter);
+app.use('/hambergertoppings', hambergerstoppingsRouter);
+app.use('/pizzas', pizzasRouter);
+app.use('/pizzatoppings', pizzastoppingsRouter);
+app.use('/singlefoods', singlefoodsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
