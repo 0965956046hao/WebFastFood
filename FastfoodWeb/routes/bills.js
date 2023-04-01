@@ -1,5 +1,5 @@
 var express = require('express');
-var ItemModel = require('../controllers/accountCtrl');
+var ItemModel = require('../controllers/billsCtrl');
 var ShowResult = require('../configs/errorHandle');
 var router = express.Router();
 

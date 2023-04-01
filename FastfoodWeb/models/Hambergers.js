@@ -25,11 +25,11 @@ const HambergersSchema = new Schema({
         required: true,},
    modified:{
         modified_by_user_name	:	'string',
-        modified_by_user_id	:	[{ type: mongoose.Types.ObjectId, ref: config.accounts_collection }],
+        modified_by_user_id	:	{ type: mongoose.Types.ObjectId, ref: config.accounts_collection },
     },
     created	:{
         created_by_user_name	:	'string',
-        created_by_user_id	:	[{ type: mongoose.Types.ObjectId, ref: config.accounts_collection }],
+        created_by_user_id	:	{ type: mongoose.Types.ObjectId, ref: config.accounts_collection },
     },
     status	:	'string',
     orderring	:	'string'

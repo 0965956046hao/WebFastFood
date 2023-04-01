@@ -23,12 +23,12 @@ const AccountsSchema = new Schema({
     modified:{
         
         modified_by_user_name	:	'string',
-        modified_by_user_id	:	'string',
+        modified_by_user_id	:	{ type: config.mongoose.Types.ObjectId, ref: config.accounts_collection },
     },
     created	:{
         // created_at	:	true,
         created_by_user_name	:	'string',
-        created_by_user_id	:	'string',
+        created_by_user_id	:	{ type: config.mongoose.Types.ObjectId, ref: config.accounts_collection },
     },  
     status	:	'string',
     orderring	:	'string'    

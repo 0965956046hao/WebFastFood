@@ -5,7 +5,7 @@ const Schema = config.mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
 const SingleFoodsSchema = new Schema({
-    foodTypeId: [{ type: mongoose.Types.ObjectId, ref: config.foodtypes_collection }],
+    foodTypeId: { type: mongoose.Types.ObjectId, ref: config.foodtypes_collection },
     foodName: {
         type: String,
         required: true,},
@@ -20,11 +20,11 @@ const SingleFoodsSchema = new Schema({
         required: true,}, 
     modified:{
         modified_by_user_name	:	'string',
-        modified_by_user_id	:	[{ type: mongoose.Types.ObjectId, ref: config.accounts_collection }],
+        modified_by_user_id	:	{ type: mongoose.Types.ObjectId, ref: config.accounts_collection },
     },
     created	:{
         created_by_user_name	:	'string',
-        created_by_user_id	:	[{ type: mongoose.Types.ObjectId, ref: config.accounts_collection }],
+        created_by_user_id	:	{ type: mongoose.Types.ObjectId, ref: config.accounts_collection },
     },
     status	:	'string',
     orderring	:	'string'

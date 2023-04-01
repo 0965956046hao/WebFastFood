@@ -1,4 +1,4 @@
-var itemSchma = require('../models/Accounts');
+var itemSchma = require('../models/Pizzas');
 
 module.exports = {
 
@@ -14,7 +14,7 @@ module.exports = {
     AddAnItem: async(params) => {
         var newItem = await itemSchma(params);
         await newItem.save();
-        console.log("Add Account success!");
+        console.log("Add Pizzas success!");
         return newItem;
     },
     UpdateAnItem: async(params) => { //param {id:'id',update:{name:'Lap Trinh Win'}}

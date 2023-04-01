@@ -1,10 +1,10 @@
-var itemSchma = require('../models/Accounts');
+var itemSchma = require('../models/FoodType');
 
 module.exports = {
 
     schema: itemSchma,
     listItem: async() => {
-        var list = await itemSchma.find({}).exec();
+        var list = await itemSchma.find({}).populate({ path: 'SingleFoods', select: '_id foodName' }).exec();
         return list;
     },
     GetItemById: async(id) => {
@@ -14,7 +14,7 @@ module.exports = {
     AddAnItem: async(params) => {
         var newItem = await itemSchma(params);
         await newItem.save();
-        console.log("Add Account success!");
+        console.log("Add FoodType success!");
         return newItem;
     },
     UpdateAnItem: async(params) => { //param {id:'id',update:{name:'Lap Trinh Win'}}

@@ -12,23 +12,21 @@ const FoodStypesSchema = new Schema({
         required: true,},
     modified:{
         modified_by_user_name	:	'string',
-        modified_by_user_id	:	[{ type: config.mongoose.Types.ObjectId, ref: config.accounts_collection }],
+        modified_by_user_id	:	{ type: config.mongoose.Types.ObjectId, ref: config.accounts_collection },
     },
     created	:{
         created_by_user_name	:	'string',
-        created_by_user_id	:	[{ type: config.mongoose.Types.ObjectId, ref: config.accounts_collection }],
+        created_by_user_id	:	{ type: config.mongoose.Types.ObjectId, ref: config.accounts_collection },
     },
     status	:	'string',
     orderring	:	'string'
   },{
     timestamps	:	true
   });
-
-
-FoodStypesSchema.virtual('types',{
-  ref: config.item_collection,
+FoodStypesSchema.virtual('SingleFoods',{
+  ref: config.singlefoods_collection,
   localField: '_id',
-  foreignField: config.foodtypes_collection
+  foreignField: 'foodTypeId'
 });
 FoodStypesSchema.set('toObject',{virtuals:true});
 FoodStypesSchema.set('toJSON',{virtuals:true});
