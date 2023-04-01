@@ -4,7 +4,7 @@ module.exports = {
 
     schema: itemSchma,
     listItem: async() => {
-        var list = await itemSchma.find({}).exec();
+        var list = await itemSchma.find({}).populate({ path: 'SingleFoods', select: '_id foodName' }).exec();
         return list;
     },
     GetItemById: async(id) => {
