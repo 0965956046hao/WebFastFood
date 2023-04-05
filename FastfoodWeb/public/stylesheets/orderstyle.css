@@ -1006,8 +1006,10 @@ p {
     position: fixed;
     white-space: nowrap;
     padding: 90px 0 0 0;
-    background: white;
+    background: #ffb97b;
     z-index: 100;
+    height: 150px;
+    border-bottom: var(--border);
 }
 .MuiTabs-flexContainer {
     display: flex;
