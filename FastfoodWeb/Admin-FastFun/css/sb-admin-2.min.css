@@ -6035,6 +6035,7 @@ a.close.disabled {
 }
 
 .modal-content {
+    margin-top: 10rem;
     position: relative;
     display: flex;
     flex-direction: column;
