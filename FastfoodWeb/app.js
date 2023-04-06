@@ -25,6 +25,7 @@ var hambergerBillsDetailsRouter = require('./routes/hambergerBillsDetails');
 var pizzaBillsDetailsRouter = require('./routes/pizzaBillsDetails');
 var singleFoodBillDetailsRouter = require('./routes/singleFoodBillDetails');
 var soleTypesRouter = require('./routes/soleTypes');
+var cartsRouter = require('./routes/carts');
 
 var app = express();
 
@@ -57,6 +58,7 @@ app.use('/hambergerBillsDetails', hambergerBillsDetailsRouter);
 app.use('/pizzaBillsDetails', pizzaBillsDetailsRouter);
 app.use('/singleFoodBillDetails', singleFoodBillDetailsRouter);
 app.use('/soleTypes', soleTypesRouter);
+app.use('/carts', cartsRouter);
 app.use(cors());
 
 // catch 404 and forward to error handler

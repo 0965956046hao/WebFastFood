@@ -328,6 +328,25 @@ section {
     left: 0;
 }
 
+
+/*myinfos-start*/
+
+.my-infos {
+    position: fixed;
+    top: 0;
+    left: -110%;
+    width: 35rem;
+    z-index: 1100;
+    background-color: var(--light-bg);
+    border-left: var(--border);
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.my-infos.active {
+    left: 0;
+}
+
 .my-orders #close-orders {
     text-align: right;
     margin-bottom: 2.5rem;
@@ -368,6 +387,34 @@ section {
 }
 
 .my-orders .box p span {
+    color: var(--black);
+}
+
+.my-infos .title {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--black);
+    font-size: 3rem;
+    text-transform: capitalize;
+    padding-top: 10px;
+}
+
+.my-infos .box {
+    background-color: var(--white);
+    border-radius: .5rem;
+    padding: 1rem 2rem;
+    box-shadow: var(--box-shadow);
+    margin: 1.5rem 0;
+}
+
+.my-infos .box p {
+    margin: 1rem 0;
+    font-size: 1.7rem;
+    color: var(--light-color);
+    line-height: 1.5;
+}
+
+.my-infos .box p span {
     color: var(--black);
 }
 
@@ -1005,7 +1052,7 @@ p {
     display: inline-block;
     position: fixed;
     white-space: nowrap;
-    padding: 90px 0 0 0;
+    padding: 97px 0 0 0;
     background: #ffb97b;
     z-index: 100;
     height: 150px;

@@ -35,12 +35,16 @@ router.post('/login',async function(req, res, next) {
   try {
     var result = await accountsControleer.Login(req.body);
     if(!result.error){
-      saveCookieResponse(res,200,result);
+      //saveCookieResponse(res,200,result);
+      res.cookie("token", result);
+      return res.redirect("/order");
     }else{
-      handleResult.returnResult(res,400,false,result);
+      //handleResult.returnResult(res,400,false,result);
+      return res.redirect("/auth?msg=fail");
     }
   } catch (error) {
-    handleResult.returnResult(res,400,false,error);
+    //handleResult.returnResult(res,400,false,error);
+    return res.redirect("/auth?msg=fail");
   }
 });
 
@@ -58,10 +62,8 @@ router.get('/logout',async function(req, res, next) {
       expirers: new Date(Date.now()+1000),
       httpOnly:true
     }
-    res.status(200).cookie('token','none',option).json({
-      success:true,
-      data:{}
-    })
+      res.cookie("token", 'none');
+      return res.redirect("/auth");
   } catch (error) {
     handleResult.returnResult(res,400,false,error);
   }
@@ -72,7 +74,7 @@ function saveCookieResponse(res,satusCode,token){
     expirers: new Date(Date.now()+config.COOKIE_EXPIRE*24*3600*1000),
     httpOnly:true
   }
-  res.status(satusCode).cookie('token',token,option).json({
+  res.cookie('token',token,option).json({
     success:true,
     data:token
   })
