@@ -4,32 +4,22 @@ const Schema = config.mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
 const pizzaBillsDetailsSchema = new Schema({
-    pizzaId: {
-        type: ObjectId,
-        required: true,
+    BillId: { type: config.mongoose.Types.ObjectId, ref: config.bills_collection },
+    pizzaId: { type: config.mongoose.Types.ObjectId, ref: config.pizzas_collection },
+    pizzaName: String,
+    pizzaImg: String,
+    pizzaCost: Number,
+    qualyti: Number,
+    topping: {
+              toppingid:  {type: config.mongoose.Types.ObjectId, ref: config.pizzatoppings_collection},
+              toppingname: String,
+              cost: Number
     },
-    pizzaToppingId: {
-        type: ObjectId,
-        required: true,
-    },
-    soleTypeId: {
-        type: ObjectId,
-        required: true,
-    },
-    cakeBorderId: {
-        type: ObjectId,
-        required: true,
-    },
-    billId: {
-        type: ObjectId,
-        required: true,
-    },
-    quantity: {
-        type: Number,
-        required: true,},
-    unitPrice: {
-        type: Number,
-        required: true,},
+    cakeBorder: {
+              cakeborderId:  {type: config.mongoose.Types.ObjectId, ref: config.cakeborders_collection},
+              cakebordername: String,
+              cost: Number
+    }
 });
 
 module.exports = config.mongoose.model('PizzaBillsDetails', pizzaBillsDetailsSchema);

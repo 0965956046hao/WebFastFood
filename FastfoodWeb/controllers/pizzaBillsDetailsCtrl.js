@@ -17,6 +17,16 @@ module.exports = {
         console.log("Add PizzaBillsDetails success!");
         return newItem;
     },
+    AddArrayItem: async(params) => {
+        itemSchma.insertMany(JSON.parse(a))
+        console.log("Add PizzaBillsDetails success!");
+        return itemSchma.find({});
+    },
+    DeleteArrayItem: async(params) => {
+        itemSchma.deleteMany(params)
+        console.log("Delete PizzaBillsDetails success!");
+        return itemSchma.find({});
+    },
     UpdateAnItem: async(params) => { //param {id:'id',update:{name:'Lap Trinh Win'}}
         var UpdateItem = await itemSchma.findByIdAndUpdate(params.id, params.update);
         return UpdateItem;

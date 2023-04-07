@@ -8,10 +8,10 @@ const BillsSchema = new Schema({
         type: ObjectId,
         required: true,},
     payMentId: {
-        type: ObjectId,
+        type: Number,
         required: true,},
     status: {
-        type: String,
+        type: Number,
         required: true,},
     describe: {
         type: String,

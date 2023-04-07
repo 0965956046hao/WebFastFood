@@ -35,7 +35,14 @@ router.get('/cus/:id', async function(req, res, next) {
 
 router.post('/add', async function(req, res, next) {
     try {
-        console.log(req.body)
+        var body = req.body;
+        var topping = req.body.topping;
+        var cakeBorder = req.body.cakeBorder;
+        var jsonTP = JSON.parse(topping);
+        var jsonCB = JSON.parse(cakeBorder);
+        body.topping = jsonTP;
+        body.cakeBorder = jsonCB;
+        console.log(body)
         var list = await ItemModel.AddAnItem(req.body);
         ShowResult.returnResult(res, 200, true, list);
     } catch (error) {

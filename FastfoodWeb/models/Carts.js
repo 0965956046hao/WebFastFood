@@ -9,12 +9,19 @@ const CartsSchema = new Schema({
     customId: { type: mongoose.Types.ObjectId, ref: config.customers_collection },
     pizzaId: { type: mongoose.Types.ObjectId, ref: config.pizzas_collection },
     pizzaName: String,
-    toppingName: String,
-    cakeborderName: String,
     pizzaImg: String,
     pizzaCost: Number,
-    toppingId: { type: mongoose.Types.ObjectId, ref: config.pizzatoppings_collection },
-    cakeBorderId: { type: mongoose.Types.ObjectId, ref: config.cakeborders_collection },
+    qualyti: Number,
+    topping: {
+              toppingid:  {type: mongoose.Types.ObjectId, ref: config.pizzatoppings_collection},
+              toppingname: String,
+              cost: Number
+    },
+    cakeBorder: {
+              cakeborderId:  {type: mongoose.Types.ObjectId, ref: config.cakeborders_collection},
+              cakebordername: String,
+              cost: Number
+    },
     quality: Number,
     amount: Number
 },{

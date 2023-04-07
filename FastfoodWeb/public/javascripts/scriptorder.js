@@ -4,6 +4,8 @@ var URLPizzaToppings = 'http://127.0.0.1:3000/pizzatoppings';
 var URLPizzaCakeBorders = 'http://127.0.0.1:3000/cakeborder';
 var URLAuthUser = 'http://127.0.0.1:3000/auth/me';
 var URLCartByCus = 'http://127.0.0.1:3000/carts/cus';
+var URLBills = 'http://127.0.0.1:3000/carts/cus';
+var URLBillsDetails = 'http://127.0.0.1:3000/carts/cus';
 
 var toppingshtml = '';
 var cakebordershtml = '';
@@ -11,7 +13,10 @@ var user;
 var pizza;
 var cakeBorder;
 var topping;
+var sumAmount = 0;
+var billId ;
 var token = getCookie('token');
+var listCart;
 console.log(token);
 
 function getCookie(name) {
@@ -211,15 +216,14 @@ function ShowPizza(data) {
                     <form class="addCart" id=${pizzas._id}  method="POST">
                         <input type="hidden" name="pizzaId" value= ${pizzas._id} />
                         <input type="hidden" name="customId" value= ${user.customId} />
-                        <input type="hidden" name="pizzaName" value= ${pizzas.pizzaName} />
-                        <input type="hidden" name="toppingName" value= 'Tôm cắt nhỏ ' />
-                        <input type="hidden" name="cakeborderName" value= 'Viền phô mai' />
+                        <input type="hidden" name="pizzaName" value= "${pizzas.pizzaName}" />
+                        <input type="hidden" name="qualyti" value= 1 />
                         <input type="hidden" name="pizzaImg" value= ${pizzas.img} />
                         <input type="hidden" name="pizzaCost" value= ${pizzas.cost} />
-                        <select name="toppingId" id="PizzaToppings">
+                        <select name="topping" id="PizzaToppings">
                         ${toppingshtml}
                         </select>
-                        <select name="cakeBorderId" id="PizzaCakeBorders">
+                        <select name="cakeBorder" id="PizzaCakeBorders">
                         ${cakebordershtml}
                         </select>
                         <input type="submit" value="add to cart" name="add_to_cart" class="btn">
@@ -233,36 +237,46 @@ function ShowPizza(data) {
 
 function ShowCart(data) {
     var tablePizzas = document.getElementById("myCart");
+    tablePizzas.innerHTML = "";
     console.log(data);
     var Pizzas = data.data.map(function (pizzas) {
-                    return ` <div class="box">
-                    <a href="#" class="fas fa-times"></a>
+                    sumAmount += (pizzas.pizzaCost + pizzas.topping.cost + pizzas.cakeBorder.cost) * pizzas.qualyti;
+                    return ` <div class="box" id=${pizzas._id}>
+                    <a class="fas fa-times" id=${pizzas._id} value= ${pizzas._id} ></a>
                     <img src=${pizzas.pizzaImg} alt="">
                     <div class="content">
                         <p>${pizzas.pizzaName}</p>
                         <form action="" method="post">
                             <select name="size" id="size">
-                                <option value=${pizzas.cakeBorderId}>${pizzas.cakeborderName}</option>
+                                <option value=${pizzas.cakeBorderId}>${pizzas.cakeBorder.cakebordername}</option>
                             </select>
                             <select name="de" id="de">
-                                <option value=${pizzas.toppingId}>${pizzas.toppingName}</option>
+                                <option value=${pizzas.toppingId}>${pizzas.topping.toppingname}</option>
                             </select>
-                            <input type="number" class="qty" name="qty" min="1" value="1" max="100">
+                            <input type="number" class="qty" name="qty" min="1" value=${pizzas.qualyti} max="100">
                         </form>
-                        <div class="prices"><span>${pizzas.pizzaCost}</span>$20</div>
+                        <div class="prices"><span>${pizzas.pizzaCost}</span>Tổng: ${(pizzas.pizzaCost + pizzas.topping.cost + pizzas.cakeBorder.cost) * pizzas.qualyti}</div>
                     </div>
             </div>`;
                 });
-    //console.log(Pizzas);
+    var sumSpan = document.getElementById("sumAmount");
+    sumSpan.innerHTML = sumAmount;  
     tablePizzas.innerHTML = Pizzas.join(' ');
-    // console.log();
+    listCart = data.data;
+    //console.log(listCart);
 };
 
 function ShowPizzaToppings(data) {
     var tablePizzaToppings = document.getElementById("PizzaToppings");
     console.log(data.data);
     var PizzaToppingss = data.data.map(function (pizzatoppings) {
-        return ` <option value=${pizzatoppings._id}>${pizzatoppings.toppingName}</option>`;
+        var jsON = {
+            "toppingid": pizzatoppings._id,
+            "toppingname": pizzatoppings.toppingName,
+            "cost": pizzatoppings.cost.toString()
+        }
+        var value = JSON.stringify(jsON)
+        return ` <option value= ${value} >${pizzatoppings.toppingName} + ${pizzatoppings.cost}</option>`;
     });
     //tablePizzaToppings.innerHTML = PizzaToppingss.join(' ');
     toppingshtml = PizzaToppingss;
@@ -272,7 +286,13 @@ function  ShowPizzaCakeBorders(data) {
     var tablePizzaCakeBorders = document.getElementById("PizzaCakeBorders");
     console.log(data.data);
     var PizzaCakeBorders = data.data.map(function (pizzacakeborders) {
-        return ` <option value=${pizzacakeborders._id}>${pizzacakeborders.cakeBorderName}</option>`;
+        var jsON = {
+            "cakeborderId": pizzacakeborders._id,
+            "cakebordername": pizzacakeborders.cakeBorderName,
+            "cost": pizzacakeborders.surcharge.toString()
+        }
+        var value = JSON.stringify(jsON)
+        return ` <option value=${value}>${pizzacakeborders.cakeBorderName} + ${pizzacakeborders.surcharge} VND</option>`;
     });
     //tablePizzaCakeBorders.innerHTML = PizzaCakeBorders.join(' ');
     // console.log();
@@ -284,6 +304,30 @@ function ShowUser(data) {
     console.log(user);
 }
 
+function AddBill()  {
+    var bill = {
+        customId: user.customId,
+        payMentId: 0,
+        status: 0,
+        describe: 'test' ,
+        dateCreate: new Date(),
+        sumCost: sumAmount
+    }
+    return bill
+}
+
+function AddBillDetails()  {
+    var billdetails = listCart;
+    billdetails.forEach(item => {
+        delete item.customId;
+        delete item._id;
+        delete item.createdAt;
+        delete item.updatedAt;
+        delete item.__v;
+        item.BillId = billId;
+    });
+    return billdetails
+}
 async function ShowMenuPizza() {
     await GetPizzaCakeBorders(ShowPizzaCakeBorders);
     await GetPizzaToppings(ShowPizzaToppings);

@@ -12,7 +12,7 @@
     <!-- custom css file link  -->
     <link rel=" stylesheet" href="/stylesheets/orderstyle.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
-    <script type="text/javascript">
+    <script type="text/javascript" id="" >
         setTimeout(function() {
             $(document).ready(function(){
                 console.log('runAjax')
@@ -41,12 +41,46 @@
                         data: datatmp,
                         dataType: "json",
                         success: function (response) {
-                            Show();
+                            GetCart(user.customId, ShowCart);
                             console.log(response)
                         },
                         error: function () {
+                            console.log('fail')
                         }
                         
+                    })
+                });
+                $('#btn-addbill').on('click',function (event) {
+                    event.preventDefault();
+                    var bill = AddBill()
+                    console.log(bill)
+                    $.ajax({
+                        type: 'POST',
+                        url: '/bills/add',
+                        data: bill,
+                        dataType: "json",
+                        success: function (response) {
+                            billId = response.data._id;
+                            console.log(billId)
+                            var billdetail = AddBillDetails()
+                            var jsonString = JSON.stringify(billdetail)
+                            console.log(jsonString)
+                            $.ajax({
+                                type: 'POST',
+                                url: '/pizzaBillsDetails/addarray',
+                                data: jsonString,
+                                dataType: "json",
+                                success: function (response) {
+                                    console.log(response)
+                                },
+                                error: function () {
+                                    console.log('fail')
+                                }
+                            })
+                        },
+                        error: function () {
+                            console.log('fail')
+                        }
                     })
                 });
                 function Show() {
@@ -96,6 +130,33 @@
                 }
             });
         }, 1500);
+    </script>
+
+    <script type="text/javascript" id="deletaScript" >
+        setTimeout(function() {
+            console.log('reload')
+            $(document).on('click',function(){
+                $("a").on('click',function (event) {
+                            event.preventDefault();
+                            var id = this.id;
+                            console.log('ajaxdelete')
+                            $.ajax({
+                                type: 'DELETE',
+                                url: '/carts/delete/' + id,
+                                success: function (response) {
+                                    // element = document.getElementById(id);
+                                    // element.remove();
+                                    GetCart(user.customId, ShowCart);
+                                    sumAmount = 0;
+                                    console.log(response)
+                                },
+                                error: function () {
+                                    console.log('delete fail')
+                                }
+                            })
+                        });
+                    })
+                },1500);
     </script>
 
 </head>
@@ -300,7 +361,7 @@
                                 <span class="text-secondary">Tổng</span>
                             </div>
                             <div class="col-4 text-right">
-                                <span class=""><span>$73</span>
+                                <span class="" id="sumAmount"><span>$73</span>
                                 </span>
                             </div>
                         </div>
@@ -337,10 +398,10 @@
                     </div>
                     <p class="text-danger"></p>
                 </div>
-                <button class="btn w-100 ">
+                <button class="btn w-100 " id="btn-addbill">
                 HOÀN TẤT ĐƠN HÀNG
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <span>$73</span>
+                <span></span>
             </button>
             </div>
             <!--a href="#order" class="btn">order now</a-->

@@ -21,6 +21,7 @@ module.exports = {
     pizzatoppings_collection:'pizzatoppings',
     hambergertoppings_collection:'hambergertoppings',
     cakeborders_collection:'cakeborders',
+    bills_collection: 'bills',
     carts_collection:'carts',
     JWT_SECRET:'123456ehehe',
     JWT_EXPIRE:'3d',
