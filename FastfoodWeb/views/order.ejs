@@ -62,25 +62,55 @@
                         success: function (response) {
                             billId = response.data._id;
                             console.log(billId)
-                            var billdetail = AddBillDetails()
-                            var jsonString = JSON.stringify(billdetail)
-                            console.log(jsonString)
-                            $.ajax({
+                            const billdetailjson = AddBillDetails()
+                            billdetailjson.forEach(item => {
+                                $.ajax({
                                 type: 'POST',
-                                url: '/pizzaBillsDetails/addarray',
-                                data: jsonString,
+                                url: '/pizzaBillsDetails/add',
+                                data: item,
                                 dataType: "json",
                                 success: function (response) {
                                     console.log(response)
+                                    
                                 },
                                 error: function () {
                                     console.log('fail')
                                 }
-                            })
+                                })
+                            });
+                            GetCart(user.customId, ShowCart);
+                            setTimeout(function() {
+                                console.log(listCart)
+                                listCart.forEach(item => {
+                                    $.ajax({
+                                    type: 'DELETE',
+                                    url: '/carts/delete/' + item._id,
+                                    success: function (response) {
+                                        console.log(response)
+                                        GetCart(user.customId, ShowCart);
+                                        GetBill(ShowBill);
+                                    },
+                                    error: function () {
+                                        console.log('fail')
+                                    }
+                                    })
+                                });
+                            },500)
                         },
                         error: function () {
                             console.log('fail')
                         }
+                    })
+                });
+                $('#btn-paymomo').on('click',function (event) {
+                    event.preventDefault();
+                    var bill = AddBill()
+                    var info = bill.describe
+                    var amount = bill.sumAmount
+                    var id = bill.customId
+                    console.log(bill)
+                    PayMoMo(info, id , amount)
+                    $.ajax({
                     })
                 });
                 function Show() {
@@ -192,13 +222,10 @@
 
     <!--account, order, shopping cart starts-->
 
-    <div class="my-orders">
-
-        <section>
-
-            <div id="close-orders"><span>close</span></div>
-
-            <h3 class="title"> my orders </h3>
+    <div class="my-orders" >
+        <h3 class="title" > my orders </h3>
+        <section id="mybills">
+            
 
             <div class="box">
                 <p>placed on : <span>06/04/2022</span> </p>
@@ -399,10 +426,15 @@
                     <p class="text-danger"></p>
                 </div>
                 <button class="btn w-100 " id="btn-addbill">
-                HOÀN TẤT ĐƠN HÀNG
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <span></span>
-            </button>
+                    HOÀN TẤT ĐƠN HÀNG (OFFLINE)
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <span></span>
+                </button>
+                <button class="btn w-100 " id="btn-paymomo" style="background: #AA1F6C;" >
+                    THANH TOÁN MOMO (ONLINE)
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <span></span>
+                </button>
             </div>
             <!--a href="#order" class="btn">order now</a-->
 

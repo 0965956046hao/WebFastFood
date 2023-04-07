@@ -4,11 +4,11 @@ module.exports = {
 
     schema: itemSchma,
     listItem: async() => {
-        var list = await itemSchma.find({}).exec();
+        var list = await itemSchma.find({}).populate({ path: 'details', select: 'pizzaName pizzaCost qualyti topping cakeBorder' }).exec();
         return list;
     },
-    GetItemById: async(id) => {
-        var list = await itemSchma.find({ _id: id }).exec();
+    GetItemByCusId: async(id) => {
+        var list = await itemSchma.find({ customId: id }).populate({ path: 'details', select: 'pizzaName pizzaCost qualyti topping cakeBorder' }).exec();
         return list;
     },
     AddAnItem: async(params) => {

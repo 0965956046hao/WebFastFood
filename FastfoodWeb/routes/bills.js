@@ -16,7 +16,7 @@ router.get('/', async function(req, res, next) {
 router.get('/:id', async function(req, res, next) {
     let ID = req.params.id;
     try {
-        var list = await ItemModel.GetItemById(ID);
+        var list = await ItemModel.GetItemByCusId(ID);
         ShowResult.returnResult(res, 200, true, list);
     } catch (error) {
         ShowResult.returnResult(res, 400, false, error);
