@@ -12,6 +12,7 @@
     <!-- custom css file link  -->
     <link rel=" stylesheet" href="/stylesheets/orderstyle.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="text/javascript" id="" >
         setTimeout(function() {
             $(document).ready(function(){
@@ -60,6 +61,12 @@
                         data: bill,
                         dataType: "json",
                         success: function (response) {
+                            Swal.fire({
+                            icon: 'success',
+                            title: 'Thêm giỏ hàng thành công',
+                            showConfirmButton: false,
+                            timer: 1500
+                            });
                             billId = response.data._id;
                             console.log(billId)
                             const billdetailjson = AddBillDetails()
@@ -103,16 +110,86 @@
                     })
                 });
                 $('#btn-paymomo').on('click',function (event) {
-                    event.preventDefault();
                     var bill = AddBill()
-                    var info = bill.describe
-                    var amount = bill.sumAmount
-                    var id = bill.customId
                     console.log(bill)
-                    PayMoMo(info, id , amount)
                     $.ajax({
+                        type: 'POST',
+                                url: '/momo/pay',
+                                data: bill,
+                                dataType: "json",
+                                success: function (res) {
+                                    console.log(res.data)
+                                    sign = JSON.parse(res.data)
+                                    GetURL(getPayUrl);
+                                },
+                                error: function () {
+                                    console.log('fail')
+                                }    
                     })
                 });
+                                    $.ajax({
+                                            url: '/order',
+                                            type: 'GET',
+                                            success: function(res) {
+                                                const urlParams = new URLSearchParams(window.location.search);
+                                                const message = urlParams.get('message');
+                                                if(message == 'Successful.')
+                                                {
+                                                    var bill = AddBill()
+                                                    bill.payMentId = 1;
+                                                    bill.status = 1;
+                                                    console.log(bill)
+                                                    $.ajax({
+                                                        type: 'POST',
+                                                        url: '/bills/add',
+                                                        data: bill,
+                                                        dataType: "json",
+                                                        success: function (response) {
+                                                            billId = response.data._id;
+                                                            console.log(billId)
+                                                            const billdetailjson = AddBillDetails()
+                                                            billdetailjson.forEach(item => {
+                                                                $.ajax({
+                                                                type: 'POST',
+                                                                url: '/pizzaBillsDetails/add',
+                                                                data: item,
+                                                                dataType: "json",
+                                                                success: function (response) {
+                                                                    console.log(response)
+                                                                    
+                                                                },
+                                                                error: function () {
+                                                                    console.log('fail')
+                                                                }
+                                                                })
+                                                            });
+                                                            GetCart(user.customId, ShowCart);
+                                                            setTimeout(function() {
+                                                                console.log(listCart)
+                                                                listCart.forEach(item => {
+                                                                    $.ajax({
+                                                                    type: 'DELETE',
+                                                                    url: '/carts/delete/' + item._id,
+                                                                    success: function (response) {
+                                                                        console.log(response)
+                                                                        GetCart(user.customId, ShowCart);
+                                                                        GetBill(ShowBill);
+                                                                    },
+                                                                    error: function () {
+                                                                        console.log('fail')
+                                                                    }
+                                                                    })
+                                                                });
+                                                            },500)
+                                                        },
+                                                        error: function () {
+                                                            console.log('fail')
+                                                        }
+                                                    })
+                                                }
+                                                console.log(message);
+                                            }
+                                            });            
                 function Show() {
                     $.ajax({
                         type: 'GET',

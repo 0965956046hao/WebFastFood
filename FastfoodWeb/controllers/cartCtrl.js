@@ -1,4 +1,5 @@
 var itemSchma = require('../models/Carts');
+const Auditing = require('../controllers/customerAuditingCtrl');
 
 module.exports = {
 
@@ -28,6 +29,10 @@ module.exports = {
         // await newItem.save();
         // console.log("Add  Carts success!");
         // return newItem;
+        var aud = { "customId": '64243e9fce0941009cfad909',
+                    "actionId": 'Thêm giỏ hàng',
+                    "dateCreate": new Date()}
+        let newAdt = await new Auditing.schema(aud).save();
         if(list.length > 0)
         {   if(list[0].topping.toppingid == params.topping.toppingid && list[0].cakeBorder.cakeborderId == params.cakeBorder.cakeborderId){
                 list[0].qualyti++;
@@ -55,6 +60,10 @@ module.exports = {
     },
     DeleteAnItem: async(param) => {
         var deleteItem = await itemSchma.findByIdAndDelete(param);
+        var aud = { "customId": '64243e9fce0941009cfad909',
+                    "actionId": 'Xóa hàng',
+                    "dateCreate": new Date()}
+            let newAdt = await new Auditing.schema(aud).save();
         return deleteItem;
     }
 }

@@ -1,42 +1,10 @@
-let searchForm = document.querySelector('.search-form');
 
-document.querySelector('#search-btn').onclick = () => {
-    searchForm.classList.toggle('active');
+document.querySelector('#user-btn').onclick = () => {
+    window.location.replace('http://127.0.0.1:3000/auth');
 }
 
-let account = document.querySelector('.user-account');
 
 
-
-let myOrders = document.querySelector('.my-orders');
-
-document.querySelector('#order-btn').onclick = () => {
-    myOrders.classList.add('active');
-}
-
-document.querySelector('#close-orders').onclick = () => {
-    myOrders.classList.remove('active');
-}
-
-let cart = document.querySelector('.shopping-cart');
-
-document.querySelector('#cart-btn').onclick = () => {
-    cart.classList.add('active');
-}
-
-document.querySelector('#close-cart').onclick = () => {
-    cart.classList.remove('active');
-}
-
-let heartt = document.querySelector('.heart');
-
-document.querySelector('#heart-btn').onclick = () => {
-    heartt.classList.add('active');
-}
-
-document.querySelector('#close-heart').onclick = () => {
-    heartt.classList.remove('active');
-}
 
 window.onscroll = () => {
     myOrders.classList.remove('active');

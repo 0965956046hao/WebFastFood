@@ -20,6 +20,9 @@
     "mongoose": "^7.0.1",
     "morgan": "~1.9.1",
     "node-rsa": "^1.1.1",
+    "request": "^2.88.2",
+    "sweetalert": "^2.1.2",
+    "sweetalert2": "^11.4.8",
     "util": "^0.12.5"
   }
 }

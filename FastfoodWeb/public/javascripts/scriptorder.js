@@ -5,6 +5,7 @@ var URLPizzaCakeBorders = 'http://127.0.0.1:3000/cakeborder';
 var URLAuthUser = 'http://127.0.0.1:3000/auth/me';
 var URLCartByCus = 'http://127.0.0.1:3000/carts/cus';
 var URLBills = 'http://127.0.0.1:3000/bills';
+var URLmomo = 'https://test-payment.momo.vn/v2/gateway/api/create';
 var toppingshtml = '';
 var cakebordershtml = '';
 var user;
@@ -15,6 +16,7 @@ var sumAmount = 0;
 var billId ;
 var token = getCookie('token');
 var listCart;
+var sign;
 console.log(token);
 
 function getCookie(name) {
@@ -34,6 +36,22 @@ function GetUser(callback) {
         .then(function (repos) {
             console.log(repos);
             return repos.json();
+        }).then(callback)
+}
+
+function GetURL(callback) {
+    console.log(sign)
+    let options = {
+        method: 'POST',
+        body: JSON.stringify(sign),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+    fetch(URLmomo, options)
+        .then(function (repos) {
+            return repos.json();
+            //
         }).then(callback)
 }
 
@@ -213,6 +231,12 @@ accordion.forEach(acco => {
         acco.classList.add('active');
     }
 });
+function getPayUrl(data)
+{
+    console.log(data.payUrl);
+    window.location.replace(data.payUrl);
+    //window.open(data.payUrl);
+}
 
 function ShowPizza(data) {
     var tablePizzas = document.getElementById("pizzasTable");
@@ -258,9 +282,9 @@ function ShowBill(data) {
                     });
                     return ` <div class="box">
                     <p>placed on : <span>${bills.dateCreate}</span> </p>
-                    <p>name : <span>${user.fullName}</span> </p>
+                    <p>name : <span>${user._id}</span> </p>
                     <p>number : <span>${bills._id}</span></p>
-                    <p>address : <span>${user.local}</span></p>
+                    <p>address : <span>202/21 Thủ đức, HCM</span></p>
                     <p>payment method : <span>${bills.payMentId}</span></p>
                     <p>your orders : <span>${food}</span></p>
                     <p>total price : <span>${bills.sumCost}</span></p>

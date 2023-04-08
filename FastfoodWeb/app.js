@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
 var bodyParser = require('body-parser');
+var Swal = require('sweetalert2');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -27,6 +28,7 @@ var pizzaBillsDetailsRouter = require('./routes/pizzaBillsDetails');
 var singleFoodBillDetailsRouter = require('./routes/singleFoodBillDetails');
 var soleTypesRouter = require('./routes/soleTypes');
 var cartsRouter = require('./routes/carts');
+var momoRouter = require('./routes/momo');
 
 var app = express();
 
@@ -62,7 +64,8 @@ app.use('/pizzaBillsDetails', pizzaBillsDetailsRouter);
 app.use('/singleFoodBillDetails', singleFoodBillDetailsRouter);
 app.use('/soleTypes', soleTypesRouter);
 app.use('/carts', cartsRouter);
-app.use(cors());
+app.use('/momo', momoRouter);
+//app.use(cors());
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -7,9 +7,7 @@ const CustomersAuditingSchema = new Schema({
     customId: {
         type: ObjectId,
         required: true,},
-    actionId: {
-        type: ObjectId,
-        required: true,},
+    actionId: String,
     dateCreate: {
         type: Date,
         required: true,}

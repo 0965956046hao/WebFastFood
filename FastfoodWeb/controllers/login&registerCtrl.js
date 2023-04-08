@@ -1,6 +1,7 @@
 
 const Accounts = require('../controllers/accountCtrl');
 const Customers = require('../controllers/customerCtrl');
+const Auditing = require('../controllers/customerAuditingCtrl');
 const mongoose = require('mongoose');
 
 module.exports ={
@@ -40,16 +41,22 @@ module.exports ={
                             "status"	:	"1",
                             "orderring"	:	"1"
                         }; 
+        
+        var aud = { "customId": id,
+                    "actionId": 'Đăng ký',
+                    "dateCreate": new Date()}
+
         console.log(paramsAcc)
                         
         let user = await Accounts.schema.findOne({email:item.email});
         console.log(user);
-        if(user){
+        if(user != null){
         throw new Error('Email đã tồn tại');
         }
         else{
             let newCus = await new Customers.schema(paramsCus).save();
             let newAcc = await new Accounts.schema(paramsAcc).save();
+            let newAdt = await new Auditing.schema(aud).save();
             return await newAcc.getSignedJWT();
         }
     },
@@ -61,6 +68,7 @@ module.exports ={
         if(result.error){
             return result;
         }
+        else
         return result.getSignedJWT();
     }  
 }
