@@ -22,4 +22,4 @@ const pizzaBillsDetailsSchema = new Schema({
     }
 });
 
-module.exports = config.mongoose.model('PizzaBillsDetails', pizzaBillsDetailsSchema);
+module.exports = config.mongoose.model(config.billdetail_collection, pizzaBillsDetailsSchema);

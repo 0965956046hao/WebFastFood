@@ -519,7 +519,7 @@ section {
 .h-scrollbar {
     overflow-x: scroll;
     width: 387px;
-    height: 470px;
+    height: 380px;
     background: white;
     border-radius: 5px;
 }

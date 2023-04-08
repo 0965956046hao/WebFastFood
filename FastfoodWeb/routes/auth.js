@@ -5,6 +5,7 @@ var validator = require('../validator/auth');
 var handleResult  = require('../configs/errorHandle');
 const protectMiddleware = require('../middleware/protect');
 var config  = require('../configs/configs');
+const Auditing = require('../controllers/customerAuditingCtrl');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -24,7 +25,8 @@ router.post('/register',validator.ValidationRule(),validator.Validate ,async fun
   console.log(req.body);
   try {
     var token = await accountsControleer.Register(req.body);
-    handleResult.returnResult(res,200,true,token);
+    //handleResult.returnResult(res,200,true,token);
+    return res.redirect("/auth");
   } catch (error) {
     console.log(error.message);
     handleResult.returnResult(res,400,false,error.message);
@@ -33,6 +35,10 @@ router.post('/register',validator.ValidationRule(),validator.Validate ,async fun
 
 router.post('/login',async function(req, res, next) {
   try {
+    var aud = { "customId": '64243e9fce0941009cfad909',
+                    "actionId": 'Đăng nhập',
+                    "dateCreate": new Date()}
+                    let newAdt =  new Auditing.schema(aud).save();
     var result = await accountsControleer.Login(req.body);
     if(!result.error){
       //saveCookieResponse(res,200,result);
@@ -63,6 +69,10 @@ router.get('/logout',async function(req, res, next) {
       httpOnly:true
     }
       res.cookie("token", 'none');
+      var aud = { "customId": '64243e9fce0941009cfad909',
+                    "actionId": 'Đăng xuât',
+                    "dateCreate": new Date()}
+      Auditing.schema(aud).save();
       return res.redirect("/auth");
   } catch (error) {
     handleResult.returnResult(res,400,false,error);

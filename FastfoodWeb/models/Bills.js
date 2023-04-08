@@ -23,5 +23,12 @@ const BillsSchema = new Schema({
         type: Number,
         required: true,}
 });
+    BillsSchema.virtual('details',{
+    ref: config.billdetail_collection,
+    localField: '_id',
+    foreignField: 'BillId'
+  });
+  BillsSchema.set('toObject',{virtuals:true});
+  BillsSchema.set('toJSON',{virtuals:true});
 
-module.exports = config.mongoose.model('Bills', BillsSchema);
+module.exports = config.mongoose.model(config.bills_collection, BillsSchema);

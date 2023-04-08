@@ -18,7 +18,7 @@ module.exports = {
         return newItem;
     },
     AddArrayItem: async(params) => {
-        itemSchma.insertMany(JSON.parse(a))
+        itemSchma.insertMany(JSON.parse(params))
         console.log("Add PizzaBillsDetails success!");
         return itemSchma.find({});
     },

@@ -37,10 +37,7 @@ router.post('/add', async function(req, res, next) {
 router.post('/addarray', async function(req, res, next) {
     try {
         console.log(req.body)
-        var i = '[{"topping":{"toppingid":"6428f8be7d27380c49be01ca","toppingname":"Cà-chua","cost":10000},"cakeBorder":{"cakeborderId":"6428fc047d27380c49be01ed","cakebordername":"Viền-xúc-xích","cost":7000},"pizzaId":"6428f4f07d27380c49be019f","pizzaName":"Pizza Nổi","pizzaImg":"./images/pizza-8.jpg","pizzaCost":120000,"qualyti":2,"BillId":"642ff7b078bdc0a20697f6e5"},{"topping":{"toppingid":"6428f8be7d27380c49be01ca","toppingname":"Cà-chua","cost":10000},"cakeBorder":{"cakeborderId":"6428fc047d27380c49be01ed","cakebordername":"Viền-xúc-xích","cost":7000},"pizzaId":"6428f4f07d27380c49be0198","pizzaName":"Pizza Cửu Mộc","pizzaImg":"./images/pizza-1.jpg","pizzaCost":90000,"qualyti":1,"BillId":"642ff7b078bdc0a20697f6e5"}]';
-        var x = JSON.stringify(i);
-        console.log(x)
-        var list = await ItemModel.AddArrayItem(x);
+        var list = await ItemModel.AddArrayItem(req.body);
         ShowResult.returnResult(res, 200, true, list);
     } catch (error) {
         ShowResult.returnResult(res, 400, false, error);

@@ -22,6 +22,7 @@ module.exports = {
     hambergertoppings_collection:'hambergertoppings',
     cakeborders_collection:'cakeborders',
     bills_collection: 'bills',
+    billdetail_collection: 'pizzabillsdetails',
     carts_collection:'carts',
     JWT_SECRET:'123456ehehe',
     JWT_EXPIRE:'3d',

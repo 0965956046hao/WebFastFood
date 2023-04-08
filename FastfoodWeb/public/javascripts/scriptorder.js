@@ -4,9 +4,8 @@ var URLPizzaToppings = 'http://127.0.0.1:3000/pizzatoppings';
 var URLPizzaCakeBorders = 'http://127.0.0.1:3000/cakeborder';
 var URLAuthUser = 'http://127.0.0.1:3000/auth/me';
 var URLCartByCus = 'http://127.0.0.1:3000/carts/cus';
-var URLBills = 'http://127.0.0.1:3000/carts/cus';
-var URLBillsDetails = 'http://127.0.0.1:3000/carts/cus';
-
+var URLBills = 'http://127.0.0.1:3000/bills';
+var URLmomo = 'https://test-payment.momo.vn/v2/gateway/api/create';
 var toppingshtml = '';
 var cakebordershtml = '';
 var user;
@@ -17,6 +16,7 @@ var sumAmount = 0;
 var billId ;
 var token = getCookie('token');
 var listCart;
+var sign;
 console.log(token);
 
 function getCookie(name) {
@@ -39,6 +39,22 @@ function GetUser(callback) {
         }).then(callback)
 }
 
+function GetURL(callback) {
+    console.log(sign)
+    let options = {
+        method: 'POST',
+        body: JSON.stringify(sign),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+    fetch(URLmomo, options)
+        .then(function (repos) {
+            return repos.json();
+            //
+        }).then(callback)
+}
+
 function GetPizzas(callback) {
     let options = {
         method: 'GET',
@@ -47,6 +63,20 @@ function GetPizzas(callback) {
         }
     }
     fetch(URLPizzas, options)
+        .then(function (repos) {
+            console.log(repos);
+            return repos.json();
+        }).then(callback)
+}
+
+function GetBill(callback) {
+    let options = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+    fetch(URLBills +"/"+ user.customId, options)
         .then(function (repos) {
             console.log(repos);
             return repos.json();
@@ -201,6 +231,12 @@ accordion.forEach(acco => {
         acco.classList.add('active');
     }
 });
+function getPayUrl(data)
+{
+    console.log(data.payUrl);
+    window.location.replace(data.payUrl);
+    //window.open(data.payUrl);
+}
 
 function ShowPizza(data) {
     var tablePizzas = document.getElementById("pizzasTable");
@@ -235,10 +271,35 @@ function ShowPizza(data) {
     // console.log();
 };
 
+function ShowBill(data) {
+    var tableBills = document.getElementById("mybills");
+    tableBills.innerHTML = "";
+    console.log(data);
+    var Bills = data.data.map(function (bills) {
+                    var food = "";
+                    bills.details.forEach(item => {
+                        food += item.pizzaName + ", "
+                    });
+                    return ` <div class="box">
+                    <p>placed on : <span>${bills.dateCreate}</span> </p>
+                    <p>name : <span>${user._id}</span> </p>
+                    <p>number : <span>${bills._id}</span></p>
+                    <p>address : <span>202/21 Thủ đức, HCM</span></p>
+                    <p>payment method : <span>${bills.payMentId}</span></p>
+                    <p>your orders : <span>${food}</span></p>
+                    <p>total price : <span>${bills.sumCost}</span></p>
+                    <p>payment status : <span style="color: var(--red);">${bills.status}</span> </p>
+                    </div>`;
+                });
+    tableBills.innerHTML = Bills.join(' ');
+    console.log(Bills)
+};
+
 function ShowCart(data) {
     var tablePizzas = document.getElementById("myCart");
     tablePizzas.innerHTML = "";
     console.log(data);
+    sumAmount = 0;
     var Pizzas = data.data.map(function (pizzas) {
                     sumAmount += (pizzas.pizzaCost + pizzas.topping.cost + pizzas.cakeBorder.cost) * pizzas.qualyti;
                     return ` <div class="box" id=${pizzas._id}>
@@ -263,7 +324,7 @@ function ShowCart(data) {
     sumSpan.innerHTML = sumAmount;  
     tablePizzas.innerHTML = Pizzas.join(' ');
     listCart = data.data;
-    //console.log(listCart);
+    console.log(listCart);
 };
 
 function ShowPizzaToppings(data) {
@@ -316,6 +377,7 @@ function AddBill()  {
     return bill
 }
 
+
 function AddBillDetails()  {
     var billdetails = listCart;
     billdetails.forEach(item => {
@@ -328,11 +390,13 @@ function AddBillDetails()  {
     });
     return billdetails
 }
+
 async function ShowMenuPizza() {
     await GetPizzaCakeBorders(ShowPizzaCakeBorders);
     await GetPizzaToppings(ShowPizzaToppings);
     setTimeout(function() {
         GetPizzas(ShowPizza);
+        GetBill(ShowBill);
         console.log(user.customId)
         GetCart(user.customId, ShowCart);
     }, 500);
