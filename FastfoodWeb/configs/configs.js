@@ -12,6 +12,7 @@ mongoose.connect(url , {useNewUrlParser: true, useUnifiedTopology: true})
 
 module.exports = {
     mongoose: mongoose,
+    HOST:'http://127.0.0.1:3000/',
     pizzas_collection:'pizzas',
     hambergers_collection:'hambergers',
     singlefoods_collection:'singlefoods',
@@ -26,5 +27,11 @@ module.exports = {
     carts_collection:'carts',
     JWT_SECRET:'123456ehehe',
     JWT_EXPIRE:'3d',
-    COOKIE_EXPIRE:'30'
+    COOKIE_EXPIRE:'30',
+    SMTP_Host:'smtp.ethereal.email',
+    SMTP_Port:'587',
+    SMTP_Username:'jenifer.rippin@ethereal.email',
+    SMTP_Password:'ANUvnWUtn4Ra3JUFEf',
+    SMTP_Auth:'PLAIN, LOGIN and CRAM-MD5',
+    SMTP_TLS:'Optional (STARTTLS on all ports)',
 }
