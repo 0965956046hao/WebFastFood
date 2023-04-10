@@ -6,6 +6,10 @@ var logger = require('morgan');
 var cors = require('cors');
 var bodyParser = require('body-parser');
 var Swal = require('sweetalert2');
+var helmet  = require('helmet');
+var xss = require('xss-clean');
+var rateLimit = require('express-rate-limit');
+var cors = require('cors');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -30,6 +34,14 @@ var soleTypesRouter = require('./routes/soleTypes');
 var cartsRouter = require('./routes/carts');
 var momoRouter = require('./routes/momo');
 
+
+const limiter = rateLimit({
+	windowMs: 15 * 60 * 1000, // 15 minutes
+	max: 2, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
+	standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+	legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+})
+
 var app = express();
 
 // view engine setup
@@ -43,6 +55,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(helmet());
+app.use(xss());
+app.use(cors());
+
+app.use('/auth/login',limiter)
 
 app.use('/home', indexRouter);
 app.use('/auth', authRouter);

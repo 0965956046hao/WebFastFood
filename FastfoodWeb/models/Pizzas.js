@@ -15,10 +15,10 @@ const PizzasSchema = new Schema({
         type: String,
         required: true,},
     size: {
-        type: Number,
+        type: String,
         required: true,},
     cakeFilling: {
-        type: Number,
+        type: String,
         required: true,},
     img: {
         type: String,

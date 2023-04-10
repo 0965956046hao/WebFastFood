@@ -6,6 +6,7 @@ var handleResult  = require('../configs/errorHandle');
 const protectMiddleware = require('../middleware/protect');
 var config  = require('../configs/configs');
 const Auditing = require('../controllers/customerAuditingCtrl');
+var { PassRules, PassValidate } = require('../validator/password');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -78,6 +79,33 @@ router.get('/logout',async function(req, res, next) {
     handleResult.returnResult(res,400,false,error);
   }
 });
+
+router.post('/forgotpassword',async function (req, res, next) {
+    try {
+      const result = await accountsControleer.ForgotPassword(req.body);
+      if(!result){
+        handleResult.returnResult(res, 200, false, {data: "email khong ton tai"});
+      }
+      else
+        handleResult.returnResult(res, 200, true, {data: result});
+    } catch (error) {
+      handleResult.returnResult(res, 400, false, error);
+    }
+});
+
+  router.post('/resetpassword/:resetToken',PassRules(),PassValidate,
+  async function (req, res, next) {
+    try {
+      const user = await accountsControleer.Resetpassword({resetToken:req.params.resetToken,password:req.body.password});
+      if(!user){
+        handleResult.returnResult(res, 200, false, {data: "user khong ton tai"});
+      }
+      else 
+        handleResult.returnResult(res, 200, true, {data: "thanh cong"});
+    } catch (error) {
+      handleResult.returnResult(res, 400, false, error);
+    }
+  });
 
 function saveCookieResponse(res,satusCode,token){
   const option = {
